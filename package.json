@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout=30000 ./program/first.test.js"
+    "test": "mocha --timeout=50000 ./program/first.test.js"
   },
   "keywords": [
     "puppeteer",
@@ -16,6 +16,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.1.1",
-    "puppeteer": "^5.2.1"
+    "puppeteer": "^5.2.1",
+    "random-useragent": "^0.4.0"
   }
 }
