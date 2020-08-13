@@ -1,0 +1,21 @@
+{
+  "name": "sw_puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout=30000 ./program/first.test.js"
+  },
+  "keywords": [
+    "puppeteer",
+    "ITE",
+    "research"
+  ],
+  "author": "George Pantel",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1",
+    "puppeteer": "^5.2.1"
+  }
+}
