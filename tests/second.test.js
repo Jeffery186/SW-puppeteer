@@ -10,7 +10,9 @@ describe("Just run the browser", () => {
                     width: 1500,
                     height: 1000
                 },
-                devtools: false
+                devtools: false,
+                dumpio: true,
+                args: "--no-sandbox"
             });
             const pages = await browser.pages();
             const page = pages[0];
