@@ -8,13 +8,18 @@ let url_list = [
     "https://www.youtube.com/",
     "https://github.com/",
     "https://www.instagram.com/",
-    "https://esmo.pro/play-2_1?h=waWQiOjEwMTYzODgsInNpZCI6MTAyMTc5Niwid2lkIjo4Njc1NCwic3JjIjoyfQ==eyJ&click_id=4e05649cc3263667374d2bd031e6bb1c-9964-0723"
+    "https://esmo.pro/play-2_1?h=waWQiOjEwMTYzODgsInNpZCI6MTAyMTc5Niwid2lkIjo4Njc1NCwic3JjIjoyfQ==eyJ&click_id=4e05649cc3263667374d2bd031e6bb1c-9964-0723",
+    "https://www.google.com/maps",
+    "https://dev.to/"
 ]
 
 
 
-describe("Checking for various sites", () => {
+describe("Checking for various sites for SW", () => {
     for (let i = 0; i < url_list.length; i++){
+
+        if(url_list[i][4] !== 's')continue; //if its not https it can't register a SW
+
         it("Checked " + url_list[i], async() => {
 
             // Step 1: launch browser and take the page.
@@ -36,8 +41,8 @@ describe("Checking for various sites", () => {
 
             try {
                 // Step 2: Go to a URL and wait for a service worker to register.
-                await context.overridePermissions(url, ["notifications"])
-                await page.goto(url)
+                await page.goto(url);
+                await context.overridePermissions(url, ["notifications"]);
                 swTarget = await browser.waitForTarget(target => target.type() === 'service_worker', {
                     timeout: 20000
                 });
@@ -47,7 +52,7 @@ describe("Checking for various sites", () => {
                     console.log(swTarget._targetInfo['url']);
                 }
             }catch(err){
-                // The process will timeout after 10s, if no service worker is registered
+                // The process will timeout after 20s, if no service worker is registered
                 console.log("No SW is registered");
             }
 
