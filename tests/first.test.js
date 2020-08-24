@@ -5,7 +5,7 @@ describe("Just run the browser", () => {
     it("Should run the browser", async function(){
         //open the browser and a new page
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             defaultViewport: {
                 width: 1500,
                 height: 1000
@@ -17,20 +17,25 @@ describe("Just run the browser", () => {
         const page = pages[0];
 
         //add the puppeteer code
-        await page.goto("https://www.google.com");
+        await page.goto("http://www.google.com");
+        await page.waitFor(3000);
         await page.waitForSelector(".gLFyf");
         await page.type(".gLFyf", "hello world", {delay: 150});
         await page.keyboard.press("Enter");
-
-        /*context.overridePermissions("https://esmo.pro/play-2_1?h=waWQiOjEwMTYzODgsInNpZCI6MTAyMTc5Niwid2lkIjo4Njc1NCwic3JjIjoyfQ==eyJ&click_id=4e05649cc3263667374d2bd031e6bb1c-9964-0723", ["notifications"])
-        for(i = 0; i < 5; i++){
-            await page.setUserAgent(random_useragent.getRandom());
-            await page.goto("https://esmo.pro/play-2_1?h=waWQiOjEwMTYzODgsInNpZCI6MTAyMTc5Niwid2lkIjo4Njc1NCwic3JjIjoyfQ==eyJ&click_id=4e05649cc3263667374d2bd031e6bb1c-9964-0723");
-            await page.waitFor(5000);
-            console.log(await page.url());
-        }*/
-
         await page.waitFor(3000);
+        console.log(await page.url());
+
+        await page.goto("http://gamato-movies.gr/hackers-1995-greek-subs-online/");
+        await page.waitFor(3000);
+        console.log(await page.url());
+
+        await page.goto("http://www.facebook.com/");
+        await page.waitFor(3000);
+        console.log(await page.url());
+
+        await page.goto("http://openvpn.net/community-downloads/");
+        await page.waitFor(3000);
+        console.log(await page.url());
 
         //close the browser
         await browser.close();

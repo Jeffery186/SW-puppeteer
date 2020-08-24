@@ -1,28 +1,28 @@
-'use strict'
-
 const puppeteer = require('puppeteer');
+const csv = require('csv-parser');
+const fs = require('fs');
 
+let url_list = [];
 
+describe("running the crawler", () => {
 
-//list of all the urls we want to check
-let url_list = [
-    "https://www.google.com/",
-    "http://www.youtube.com/",
-    "https://github.com/",
-    "http://h2020.myspecies.info",
-    "http://www.instagram.com/",
-    "https://esmo.pro/play-2_1?h=waWQiOjEwMTYzODgsInNpZCI6MTAyMTc5Niwid2lkIjo4Njc1NCwic3JjIjoyfQ==eyJ&click_id=4e05649cc3263667374d2bd031e6bb1c-9964-0723",
-    "https://www.google.com/maps",
-    "https://dev.to/"
-]
+    before(function(done) {
+        fs.createReadStream('Datasets/top-1000.csv')
+        .pipe(csv())
+        .on('data', (row) => {
+            url_list.push("http://www." + row.site);
+        })
+        .on('end', () => {
+            console.log('CSV file successfully processed');
+            console.log(url_list);
+            done();
+        });
+    })
 
-let ServiceWorkers = [];
+    console.log(url_list.length);
+    for(let i = 0; i < url_list.length; i++){
 
-describe("Checking for various sites for SW", () => {
-    for (let i = 0; i < url_list.length; i++){
-
-        it("("+ (i + 1) + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {
-
+        it("("+ i + "/" + url_list.length + ") Checked " + url_list[i], async() => {
             // Step 1: launch browser and take the page.
             let browser = await puppeteer.launch({
                 headless: true,
@@ -30,7 +30,9 @@ describe("Checking for various sites for SW", () => {
                     width: 1500,
                     height: 1000
                 },
-                devtools: false
+                devtools: false,
+                dumpio: true,
+                args: "--no-sandbox"
             });
             let context = browser.defaultBrowserContext();
             let pages =  await browser.pages();
@@ -53,19 +55,15 @@ describe("Checking for various sites for SW", () => {
             
                 // Step 3a: If a service worker is registered, print URL of SW file to the console 
                 if(swTarget) {
-                    ServiceWorkers.push(swTarget._targetInfo['url']);
+                    console.log(swTarget._targetInfo['url']);
                 }
             }catch(err){
                 // The process will timeout after 20s, if no service worker is registered
-                //console.log("No SW is registered");
+                console.log("No SW is registered");
             }
 
             // Step 4: Done. Close.
             await browser.close()
         })
     }
-
-    after(() => {
-        console.log(ServiceWorkers);
-    })
 })
