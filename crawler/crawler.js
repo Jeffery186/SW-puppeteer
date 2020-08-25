@@ -16,9 +16,9 @@ describe("running the crawler", () => {
     rawDataList = rawData.split('\n');
 
     for(let j = 0; j < rawDataList.length; j++){
-        console.log(rawDataList[j]);
-        if(!rawDataList[j])continue;
-        url_list.push("http://www." + rawDataList[j].split(',')[1])
+        data = rawDataList[j].split(',')[1];
+        if(data === undefined)continue;
+        url_list.push("http://www." + data);
     }
     console.log(url_list);
     for (let i = 0; i < url_list.length; i++){
