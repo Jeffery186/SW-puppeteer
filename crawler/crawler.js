@@ -1,22 +1,26 @@
 const puppeteer = require('puppeteer');
 const csv = require('csv-parser');
 const fs = require('fs');
+const { Console } = require('console');
 
 let url_list = [];
 let ServiceWorkers = [];
+let rawData;
+let rawDataList;
+let Data;
 
 
 describe("running the crawler", () => {
 
-    let rawData = fs.readFileSync('Datasets/top-1000.csv', {encoding: 'ascii'});
+    rawData = fs.readFileSync('Datasets/top-10.csv', {encoding: 'ascii'});
     rawDataList = rawData.split('\n');
+
     for(let j = 0; j < rawDataList.length; j++){
-        if(rawDataList[j] === "")continue;
+        console.log(rawDataList[j]);
+        if(!rawDataList[j])continue;
         url_list.push("http://www." + rawDataList[j].split(',')[1])
     }
     console.log(url_list);
-    console.log("hi");
-    console.log(url_list.length);
     for (let i = 0; i < url_list.length; i++){
         it("("+ i + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {
 
@@ -60,4 +64,9 @@ describe("running the crawler", () => {
             await browser.close()
         })
     }
+
+    after(function(){
+        console.log('\n');
+        console.log(ServiceWorkers);
+    })
 })
