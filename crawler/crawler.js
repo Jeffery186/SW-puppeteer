@@ -1,18 +1,16 @@
 const puppeteer = require('puppeteer');
-const csv = require('csv-parser');
 const fs = require('fs');
-const { Console } = require('console');
 
 let url_list = [];
 let ServiceWorkers = [];
 let rawData;
 let rawDataList;
-let Data;
-
+let input_file = 'Datasets/top-10.csv';
+let data;
 
 describe("running the crawler", () => {
 
-    rawData = fs.readFileSync('Datasets/top-10.csv', {encoding: 'ascii'});
+    rawData = fs.readFileSync(input_file, {encoding: 'ascii'});
     rawDataList = rawData.split('\n');
 
     for(let j = 0; j < rawDataList.length; j++){
@@ -20,9 +18,11 @@ describe("running the crawler", () => {
         if(data === undefined)continue;
         url_list.push("http://www." + data);
     }
-    console.log(url_list);
+
+    if(url_list.length > 0)console.log("File " + input_file.split('/')[1] + " was successfully read.");
+    
     for (let i = 0; i < url_list.length; i++){
-        it("("+ i + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {
+        it("("+ (i + 1) + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {
 
             // Step 1: launch browser and take the page.
             let browser = await puppeteer.launch({
@@ -49,7 +49,7 @@ describe("running the crawler", () => {
                 if(await page.url()[4] !== 's') throw err;
     
                 swTarget = await browser.waitForTarget(target => target.type() === 'service_worker', {
-                    timeout: 10000
+                    timeout: 15000
                 });
             
                 // Step 3a: If a service worker is registered, print URL of SW file to the console 
@@ -57,7 +57,7 @@ describe("running the crawler", () => {
                     ServiceWorkers.push(swTarget._targetInfo['url']);
                 }
             }catch(err){
-                // The process will timeout after 20s, if no service worker is registered
+                // The process will timeout after 15s, if no service worker is registered
             }
     
             // Step 4: Done. Close.
@@ -66,7 +66,9 @@ describe("running the crawler", () => {
     }
 
     after(function(){
-        console.log('\n');
-        console.log(ServiceWorkers);
+        var file = fs.createWriteStream('ServiceWorkers.cvs');
+        ServiceWorkers.forEach(function(v) { file.write(v + ', \n'); });
+        file.end();
+        console.log("ServiceWorkers.cvs was successfully created!");
     })
 })

@@ -2,11 +2,6 @@
 
 const puppeteer = require('puppeteer');
 
-fs.createReadStream('Datasets/top-1000.csv')
-.pipe(csv())
-.on('data', (row) => {
-    url_list.push("http://www." + row.site);
-});
 
 //list of all the urls we want to check
 let url_list = [

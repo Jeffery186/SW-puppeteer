@@ -16,6 +16,8 @@ describe("Just run the browser", () => {
         const pages = await browser.pages();
         const page = pages[0];
 
+        browser.userAgent(random_useragent.getRandom());
+
         //add the puppeteer code
         await page.goto("http://www.google.com");
         await page.waitFor(3000);
