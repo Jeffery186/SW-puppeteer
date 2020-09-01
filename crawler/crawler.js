@@ -1,11 +1,14 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const random_useragent = require('random-useragent');
+
+let input_file = 'Datasets/serviceWorkersSite.csv';
+let permitions = true;
 
 let url_list = [];
 let ServiceWorkers = [];
 let rawData;
 let rawDataList;
-let input_file = 'Datasets/top-10.csv';
 let data;
 
 describe("running the crawler", () => {
@@ -16,7 +19,9 @@ describe("running the crawler", () => {
     for(let j = 0; j < rawDataList.length; j++){
         data = rawDataList[j].split(',')[1];
         if(data === undefined)continue;
-        url_list.push("http://www." + data);
+        if(data.search("http") !== -1)url_list.push(data);
+        else if(data.search("www") !== -1)url_list.push("http://" + data);
+        else url_list.push("http://www." + data);
     }
 
     if(url_list.length > 0)console.log("File " + input_file.split('/')[1] + " was successfully read.");
@@ -40,16 +45,18 @@ describe("running the crawler", () => {
             let url = url_list[i];
     
             var swTarget;
-    
+            
+            browser.userAgent(random_useragent.getRandom());
+
             try {
                 // Step 2: Go to a URL and wait for a service worker to register.
+                if (permitions) await context.overridePermissions(url, ["notifications"]);
                 await page.goto(url);
-                await context.overridePermissions(url, ["notifications"]);
     
                 if(await page.url()[4] !== 's') throw err;
     
                 swTarget = await browser.waitForTarget(target => target.type() === 'service_worker', {
-                    timeout: 15000
+                    timeout: 25000
                 });
             
                 // Step 3a: If a service worker is registered, print URL of SW file to the console 
@@ -66,9 +73,21 @@ describe("running the crawler", () => {
     }
 
     after(function(){
-        var file = fs.createWriteStream('ServiceWorkers.cvs');
-        ServiceWorkers.forEach(function(v) { file.write(v + ', \n'); });
-        file.end();
-        console.log("ServiceWorkers.cvs was successfully created!");
+        try{
+            var file = fs.createWriteStream('ServiceWorkers.txt');
+            ServiceWorkers.forEach(function(v) { file.write(v + '\n'); });
+            file.end();
+            console.log("\n\nServiceWorkers.cvs was successfully created!");
+        }catch(err){
+            console.log("\n\n");
+            console.log(ServiceWorkers);
+        }
+
+        console.log("\n");
+        console.log("\n");
+        console.log("Statistics");
+        console.log("=============================");
+        console.log("\n");
+        console.log("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
     })
 })
