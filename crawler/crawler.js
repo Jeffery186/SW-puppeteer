@@ -40,13 +40,14 @@ describe("running the crawler", () => {
 
                 // Step 1: launch browser and take the page.
                 let browser = await puppeteer.launch({
-                    headless: true,
+                    headless: false,
                     defaultViewport: {
                         width: 1500,
                         height: 1000,
                         isMobile: false
                     },
-                    devtools: false
+                    devtools: false,
+                    args: ['--headless']
                 });
                 let context = browser.defaultBrowserContext();
                 let pages =  await browser.pages();
@@ -57,8 +58,6 @@ describe("running the crawler", () => {
                 var swTargetFound;
                 
                 page.setDefaultNavigationTimeout(60000);
-
-                // Step 2: Go to a URL and wait for a service worker to register.
                 if (permitions) await context.overridePermissions(url, ["notifications"]);
 
                 try{
