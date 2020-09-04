@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "crawler": "mocha --timeout=50000 ./crawler/crawler.js",
+    "crawler": "mocha --timeout=500000 ./crawler/crawler.js",
     "test:first": "mocha --timeout=50000 ./tests/first.test.js",
     "test:second": "mocha --timeout=50000 ./tests/second.test.js",
     "test:third": "mocha --timeout=50000 ./tests/third.test.js"

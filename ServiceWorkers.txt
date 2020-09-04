@@ -1,0 +1,15 @@
+https://www.youtube.com/sw.js
+https://twitter.com/sw.js
+https://www.flipkart.com/sw.js
+https://www.cnet.com/service-worker.js
+https://www.bukalapak.com/bl-sw.js
+https://www.rambler.ru/sw-desktop.js
+https://weather.com/daybreak-home/assets/service-worker.js
+https://www.bukalapak.com/bl-sw.js
+https://www.youporn.com/service-worker.js
+https://www.tripadvisor.com/ServiceWorker?render
+https://www.theatlantic.com/static/frontend/dist/theatlantic/sw/sw.8530eaa68450.js
+https://www.cbsnews.com/serviceworker.js
+https://www.olx.in/sw.js
+https://www.myfreecams.com/service-worker.js
+https://www.okcupid.com/service-worker.js
