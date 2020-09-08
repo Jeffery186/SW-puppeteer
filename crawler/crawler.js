@@ -1,9 +1,8 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const random_useragent = require('random-useragent');
-const { EventEmitter } = require('events');
 
 let input_file = process.argv[4].substr(1,process.argv[4].length);
+let crawlerNumber = process.argv[5].substr(1,process.argv[5].length);
 let permitions = true;
 
 let url_list = [];
@@ -42,7 +41,14 @@ describe("running the crawler", () => {
                         isMobile: false
                     },
                     devtools: false,
-                    args: ['--headless']
+                    args: [
+                        '--enable-features=NetworkService',
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--ignore-certificate-errors',
+                        '--disable-gpu',
+                        '--headless'
+                    ]
                 });
                 let context = browser.defaultBrowserContext();
                 let pages =  await browser.pages();
@@ -85,7 +91,7 @@ describe("running the crawler", () => {
                                 return true;
                             }
                         }, {
-                            timeout: 25000
+                            timeout: 15000
                         });
 
                         if(swTargetFound){
@@ -93,7 +99,7 @@ describe("running the crawler", () => {
                             break;
                         }
                     }catch(err){
-                        if(reloadLoop === 2){
+                        if(reloadLoop === 1){
                             browser.close();
                             noServiceWorkers.push(url);
                             //throw err;
@@ -109,33 +115,45 @@ describe("running the crawler", () => {
     after(function(){
         let writeLoop
         try{
-            var file = fs.createWriteStream('ServiceWorkers.txt');
+            var file = fs.createWriteStream('results/ServiceWorkers-part' + crawlerNumber + '.txt');
             for(writeLoop = 0; writeLoop < ServiceWorkers.length; writeLoop++){
                 file.write(ServiceWorkers[writeLoop] + "\n");
             }
             file.end();
-            console.log("\n\nServiceWorkers.txt was successfully created!");
+            console.log("ServiceWorkers.txt was successfully created!\n");
         }catch(err){
             console.log("\n\n");
+            console.log("Service Workers:\n");
             console.log(ServiceWorkers);
         }
 
         try{
-            var file = fs.createWriteStream('noServiceWorkersSites.txt');
-            for(lwriteLoop = 0; writeLoop < noServiceWorkers.length; writeLoop++){
+            var file = fs.createWriteStream('results/noServiceWorkersSites-part' + crawlerNumber + '.txt');
+            for(writeLoop = 0; writeLoop < noServiceWorkers.length; writeLoop++){
                 file.write(noServiceWorkers[writeLoop] + "\n");
             }
             file.end();
-            console.log("\n\nnoServiceWorkersSites.txt was successfully created!");
+            console.log("noServiceWorkersSites.txt was successfully created!\n");
         }catch(err){
             console.log("\n\n");
+            console.log("Site Without Service Worker:\n");
             console.log(noServiceWorkers);
         }
 
-        console.log("\n\n");
-        console.log("         Statistics");
-        console.log("=============================");
-        console.log("\n");
-        console.log("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
+        try{
+            var file = fs.createWriteStream('Statistics/part' + crawlerNumber + '.txt');
+            file.write("         Statistics");
+            file.write("=============================");
+            file.write("\n");
+            file.write("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
+            file.end();
+            console.log("Statistics were successfully registered!\n");
+        }catch(err){
+            console.log("\n\n");
+            console.log("         Statistics\n");
+            console.log("=============================\n");
+            console.log("\n");
+            console.log("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
+        }
     });
 });
