@@ -10,5 +10,5 @@ echo $fileName
 mkdir results
 
 for((i = 0; i < $(nproc); i++)); do
-    screen -dmS crawler-$i bash -c "npm run crawler splitedData/part-$i.csv > results/serviceWorkers-$i.txt"
+    screen -dmS crawler-$i bash -c "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-$i.csv > results/serviceWorkers-$i.txt"
 done

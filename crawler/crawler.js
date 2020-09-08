@@ -3,22 +3,17 @@ const fs = require('fs');
 const random_useragent = require('random-useragent');
 const { EventEmitter } = require('events');
 
-let input_file = 'Datasets/serviceWorkersSite.csv';
+let input_file = process.argv[4].substr(1,process.argv[4].length);
 let permitions = true;
 
 let url_list = [];
 let ServiceWorkers = [];
+let noServiceWorkers = [];
 let rawData;
 let rawDataList;
 let data;
 
 describe("running the crawler", () => {
-
-    /*
-    process.argv.forEach(function (val, index, array) {
-        console.log(index + ': ' + val);
-    });
-    */
 
     rawData = fs.readFileSync(input_file, {encoding: 'ascii'});
     rawDataList = rawData.split('\n');
@@ -35,7 +30,7 @@ describe("running the crawler", () => {
     
     for (let i = 0; i < url_list.length; i++){
         it("("+ (i + 1) + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {
-            for(let reloadLoop = 0; reloadLoop < 3; reloadLoop++){
+            for(let reloadLoop = 0; reloadLoop < 2; reloadLoop++){
                 console.log("Loop number #" + (reloadLoop + 1));
 
                 // Step 1: launch browser and take the page.
@@ -57,7 +52,7 @@ describe("running the crawler", () => {
         
                 var swTargetFound;
                 
-                page.setDefaultNavigationTimeout(60000);
+                page.setDefaultNavigationTimeout(90000);
                 if (permitions) await context.overridePermissions(url, ["notifications"]);
 
                 try{
@@ -71,7 +66,7 @@ describe("running the crawler", () => {
                             return true;
                         }
                     }, {
-                        timeout: 15000
+                        timeout: 5000
                     });
 
                     if(swTargetFound){
@@ -90,7 +85,7 @@ describe("running the crawler", () => {
                                 return true;
                             }
                         }, {
-                            timeout: 45000
+                            timeout: 25000
                         });
 
                         if(swTargetFound){
@@ -100,7 +95,8 @@ describe("running the crawler", () => {
                     }catch(err){
                         if(reloadLoop === 2){
                             browser.close();
-                            throw err;
+                            noServiceWorkers.push(url);
+                            //throw err;
                         }
                     }
                 }finally{
@@ -111,16 +107,29 @@ describe("running the crawler", () => {
     }
 
     after(function(){
+        let writeLoop
         try{
             var file = fs.createWriteStream('ServiceWorkers.txt');
-            for(let writeLoop = 0; writeLoop < ServiceWorkers.length; writeLoop++){
+            for(writeLoop = 0; writeLoop < ServiceWorkers.length; writeLoop++){
                 file.write(ServiceWorkers[writeLoop] + "\n");
             }
             file.end();
-            console.log("\n\nServiceWorkers.cvs was successfully created!");
+            console.log("\n\nServiceWorkers.txt was successfully created!");
         }catch(err){
             console.log("\n\n");
             console.log(ServiceWorkers);
+        }
+
+        try{
+            var file = fs.createWriteStream('noServiceWorkersSites.txt');
+            for(lwriteLoop = 0; writeLoop < noServiceWorkers.length; writeLoop++){
+                file.write(noServiceWorkers[writeLoop] + "\n");
+            }
+            file.end();
+            console.log("\n\nnoServiceWorkersSites.txt was successfully created!");
+        }catch(err){
+            console.log("\n\n");
+            console.log(noServiceWorkers);
         }
 
         console.log("\n\n");
@@ -128,5 +137,5 @@ describe("running the crawler", () => {
         console.log("=============================");
         console.log("\n");
         console.log("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
-    })
-})
+    });
+});
