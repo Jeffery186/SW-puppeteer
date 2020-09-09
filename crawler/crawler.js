@@ -65,9 +65,9 @@ describe("running the crawler", () => {
                     await page.goto(url, {waitUntil: 'load'});
         
                     swTargetFound = await browser.waitForTarget(target => {
-                        console.log(target.type());
-                        console.log(target.url());
                         if(target.type() === 'service_worker'){
+                            console.log(target.type());
+                            console.log(target.url());
                             ServiceWorkers.push(target.url());
                             return true;
                         }
@@ -142,15 +142,15 @@ describe("running the crawler", () => {
 
         try{
             var file = fs.createWriteStream('Statistics/part' + crawlerNumber + '.txt');
-            file.write("         Statistics");
-            file.write("=============================");
+            file.write("Statistics\n");
+            file.write("=============================\n");
             file.write("\n");
             file.write("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
             file.end();
             console.log("Statistics were successfully registered!\n");
         }catch(err){
             console.log("\n\n");
-            console.log("         Statistics\n");
+            console.log("Statistics\n");
             console.log("=============================\n");
             console.log("\n");
             console.log("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
