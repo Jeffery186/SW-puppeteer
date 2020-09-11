@@ -1,0 +1,8 @@
+https://www.cnet.com/service-worker.js
+https://www.alibaba.com/sw.js?v=2.13.21&_flasher_manifest_=https://s.alicdn.com/@xconfig/flasher_classic/manifest
+https://www.dailymail.co.uk/static/mol-fe/static/mol-fe-sync-bundle/5.7.0/sw.js
+https://ok.ru/app.js
+https://www.foxnews.com/push-worker.js
+https://www.flipkart.com/sw.js
+https://www.kompas.com/firebase-messaging-sw.js
+https://www.grid.id/firebase-messaging-sw.js

@@ -1,38 +1,41 @@
 {
-  "name": "sw_puppeteer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "crawler:test1": "mocha --timeout=500000 ./crawler/crawler.js -Datasets/serviceWorkersSite.csv -1",
-    "crawler:test2": "mocha --timeout=500000 ./crawler/crawler.js -Datasets/serviceWorkersSite2.csv -2",
-    "crawler": "mocha --timeout=500000 ./crawler/crawler.js -Datasets/top-1m-tranco.csv -1",
-    "crawler:0": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-0.csv -0",
-    "crawler:1": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-1.csv -1",
-    "crawler:2": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-2.csv -2",
-    "crawler:3": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-3.csv -3",
-    "crawler:4": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-4.csv -4",
-    "crawler:5": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-5.csv -5",
-    "crawler:6": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-6.csv -6",
-    "crawler:7": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-7.csv -7",
-    "test:first": "mocha --timeout=50000 ./tests/first.test.js",
-    "test:second": "mocha --timeout=50000 ./tests/second.test.js",
-    "test:third": "mocha --timeout=50000 ./tests/third.test.js",
-    "test:forth": "mocha --timeout=50000 ./tests/forth.test.js",
-    "test:fifth": "mocha --timeout=50000 ./tests/fifth.test.js"
-  },
-  "keywords": [
-    "puppeteer",
-    "ITE",
-    "research"
-  ],
-  "author": "George Pantel",
-  "license": "ISC",
-  "dependencies": {
-    "chai": "^4.2.0",
-    "csv-parser": "^2.3.3",
-    "mocha": "^8.1.1",
-    "puppeteer": "^5.2.1",
-    "random-useragent": "^0.4.0"
-  }
+ "name": "sw_puppeteer",
+ "version": "1.0.0",
+ "description": "",
+ "main": "index.js",
+ "scripts": {
+  "crawler:test1": "mocha --timeout=500000 ./crawler/crawler.js -Datasets/serviceWorkersSite.csv -1",
+  "crawler:test2": "mocha --timeout=500000 ./crawler/crawler.js -Datasets/serviceWorkersSite2.csv -2",
+  "crawler": "mocha --timeout=500000 ./crawler/crawler.js -Datasets/top-1m-tranco.csv -1",
+  "crawler:debug": "mocha --timeout=500000 ./crawler/crawler.js -Datasets/falseNegativeSites.csv -1",
+  "test:first": "mocha --timeout=500000 ./tests/first.test.js",
+  "test:second": "mocha --timeout=500000 ./tests/second.test.js",
+  "test:third": "mocha --timeout=500000 ./tests/third.test.js",
+  "test:forth": "mocha --timeout=500000 ./tests/forth.test.js",
+  "test:fifth": "mocha --timeout=500000 ./tests/fifth.test.js",
+  "test:sixth": "mocha --timeout=500000 ./tests/sixth.test.js",
+  "crawler:0": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-0.csv -0",
+  "crawler:1": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-1.csv -1",
+  "crawler:2": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-2.csv -2",
+  "crawler:3": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-3.csv -3",
+  "crawler:4": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-4.csv -4",
+  "crawler:5": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-5.csv -5",
+  "crawler:6": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-6.csv -6",
+  "crawler:7": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-7.csv -7"
+ },
+ "keywords": [
+  "puppeteer",
+  "ITE",
+  "research"
+ ],
+ "author": "George Pantel",
+ "license": "ISC",
+ "dependencies": {
+  "chai": "^4.2.0",
+  "csv-parser": "^2.3.3",
+  "mocha": "^8.1.1",
+  "puppeteer": "^5.2.1",
+  "random-useragent": "^0.4.0",
+  "website-scraper": "^4.2.2"
+ }
 }

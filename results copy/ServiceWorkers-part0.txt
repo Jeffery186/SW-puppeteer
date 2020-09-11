@@ -1,0 +1,11 @@
+https://www.youtube.com/sw.js
+https://twitter.com/sw.js
+https://www.pinterest.com/sw.js
+https://www.office.com/sw?cdnDomain=blobs.officehome.msocdn.com&workload=officehome
+https://vk.com/js/cmodules/sw/sw.js
+https://www.nytimes.com/vi-assets/static-assets/service-worker-test-1599152763048.js
+https://www.aliexpress.com/sw.js
+https://www.amazon.in/service-worker.js
+https://www.washingtonpost.com/notification-sw.js
+https://www.oracle.com/akam-sw.js
+https://www.tribunnews.com/firebase-messaging-sw.js

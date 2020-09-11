@@ -6,17 +6,23 @@ numberToStrings = [
     'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth'
     ]
 
-testNumber = 5
+testNumber = 6
 
 with open('package.json', 'r') as fp:
     package = json.load(fp)
 
+temp = []
+
 for key in package['scripts']:
+    temp.append(key)
+
+for key in temp:
     package['scripts'].pop(key, None)
 
 package['scripts']['crawler:test1'] = 'mocha --timeout=500000 ./crawler/crawler.js -Datasets/serviceWorkersSite.csv -1'
 package['scripts']['crawler:test2'] = 'mocha --timeout=500000 ./crawler/crawler.js -Datasets/serviceWorkersSite2.csv -2'
 package['scripts']['crawler'] = 'mocha --timeout=500000 ./crawler/crawler.js -Datasets/top-1m-tranco.csv -1'
+package['scripts']['crawler:debug'] = 'mocha --timeout=500000 ./crawler/crawler.js -Datasets/falseNegativeSites.csv -1'
 
 for i in range(testNumber):
     package['scripts']['test:' + numberToStrings[i]] = f'mocha --timeout=500000 ./tests/{numberToStrings[i]}.test.js'

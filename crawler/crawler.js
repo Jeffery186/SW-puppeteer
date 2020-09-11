@@ -1,9 +1,10 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const scrape = require('website-scraper');
 
 let input_file = process.argv[4].substr(1,process.argv[4].length);
 let crawlerNumber = process.argv[5].substr(1,process.argv[5].length);
-let permitions = true;
+let permitions = false;
 
 let url_list = [];
 let ServiceWorkers = [];
@@ -11,6 +12,58 @@ let noServiceWorkers = [];
 let rawData;
 let rawDataList;
 let data;
+
+async function downloadSite(site){
+    scrape({
+        urls: [
+            site
+        ],
+        directory: './Downloaded_sites/' + site.split('/')[2],
+        prettifyUrls: true,
+        subdirectories: [
+            {
+                directory: 'img',
+                extensions: ['.jpg', '.png', '.svg', '.webp', '.gif']
+            },
+            {
+                directory: 'js',
+                extensions: ['.js']
+            },
+            {
+                directory: 'css',
+                extensions: ['.css']
+            },
+            {
+                directory: 'php',
+                extensions: ['.php']
+            },
+            {
+                directory: 'fonts',
+                extensions: ['.woff', '.ttf', '.woff2', '.eot']
+            }
+        ],
+        sources: [
+            {
+                selector: 'img',
+                attr: 'src'
+            },
+            {
+                selector: 'link[rel="stylesheet"]',
+                attr: 'href'
+            },
+            {
+                selector: 'script',
+                attr: 'src'
+            }
+        ]
+    }).then(function (result) {
+        // Outputs HTML 
+        // console.log(result);
+        console.log(site.split('/')[2] + " content succesfully downloaded.");
+    }).catch(function (err) {
+        console.log("Failed to download content.");
+    });
+}
 
 describe("running the crawler", () => {
 
@@ -76,7 +129,8 @@ describe("running the crawler", () => {
                     });
 
                     if(swTargetFound){
-                        browser.close();
+                        await downloadSite(page.url());
+                        await browser.close();
                         break;
                     }
                 }catch(err){
@@ -84,9 +138,9 @@ describe("running the crawler", () => {
                         await page.goto(url);
         
                         swTargetFound = await browser.waitForTarget(target => {
-                            console.log(target.type());
-                            console.log(target.url());
                             if(target.type() === 'service_worker'){
+                                console.log(target.type());
+                                console.log(target.url());
                                 ServiceWorkers.push(target.url());
                                 return true;
                             }
@@ -95,18 +149,19 @@ describe("running the crawler", () => {
                         });
 
                         if(swTargetFound){
-                            browser.close();
+                            await downloadSite(page.url());
+                            await browser.close();
                             break;
                         }
                     }catch(err){
                         if(reloadLoop === 1){
-                            browser.close();
+                            await browser.close();
                             noServiceWorkers.push(url);
                             //throw err;
                         }
                     }
                 }finally{
-                    browser.close();
+                    await browser.close();
                 }
             }
         })

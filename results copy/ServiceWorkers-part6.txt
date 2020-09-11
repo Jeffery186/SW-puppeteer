@@ -1,0 +1,7 @@
+https://www.brilio.net/brilio-sw-www.js
+https://padlet.com/sw.js?version=202007311200
+https://ecdn.firstimpression.io/static/sw/tracking-sw.js
+https://www.duolingo.com/gcm-service-worker.js
+https://www.theglobeandmail.com/sw.js?_=5_0_114
+https://www.gismeteo.ru/pwasw.js
+https://www.scmp.com/sw.js

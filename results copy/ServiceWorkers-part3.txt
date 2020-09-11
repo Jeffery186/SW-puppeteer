@@ -1,0 +1,11 @@
+https://amp.dev/serviceworker.js
+https://www.tiktok.com/sw.js
+https://www.iqiyi.com/service-worker.js
+https://www.target.com/service-worker.js
+https://www.ebay.co.uk/sw.js
+https://nypost.com/push-worker.js
+https://www.vice.com/service-worker.js
+https://www.rt.com/homescreen-sw.js
+https://www.zdnet.com/service-worker.js
+https://www.ebay.de/sw.js
+https://www.oracle.com/akam-sw.js
