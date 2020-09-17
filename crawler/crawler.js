@@ -12,6 +12,15 @@ let noServiceWorkers = [];
 let rawData;
 let rawDataList;
 let data;
+let arguments = [
+    '--enable-features=NetworkService',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--ignore-certificate-errors',
+    '--disable-gpu',
+    '--allow-silent-push'
+    //'--headless'
+]
 
 async function downloadSite(site){
     scrape({
@@ -41,27 +50,13 @@ async function downloadSite(site){
                 directory: 'fonts',
                 extensions: ['.woff', '.ttf', '.woff2', '.eot']
             }
-        ],
-        sources: [
-            {
-                selector: 'img',
-                attr: 'src'
-            },
-            {
-                selector: 'link[rel="stylesheet"]',
-                attr: 'href'
-            },
-            {
-                selector: 'script',
-                attr: 'src'
-            }
         ]
     }).then(function (result) {
         // Outputs HTML 
         // console.log(result);
         console.log(site.split('/')[2] + " content succesfully downloaded.");
     }).catch(function (err) {
-        console.log("Failed to download content.");
+        console.log("Failed to download " + site.split('/')[2] + ".");
     });
 }
 
@@ -86,26 +81,18 @@ describe("running the crawler", () => {
                 console.log("Loop number #" + (reloadLoop + 1));
 
                 // Step 1: launch browser and take the page.
-                let browser = await puppeteer.launch({
+                var browser = await puppeteer.launch({
                     headless: false,
                     defaultViewport: {
                         width: 1500,
                         height: 1000,
                         isMobile: false
                     },
-                    devtools: false,
-                    args: [
-                        '--enable-features=NetworkService',
-                        '--no-sandbox',
-                        '--disable-setuid-sandbox',
-                        '--ignore-certificate-errors',
-                        '--disable-gpu',
-                        '--headless'
-                    ]
+                    args: arguments
                 });
-                let context = browser.defaultBrowserContext();
+                const context = browser.defaultBrowserContext();
                 let pages =  await browser.pages();
-                let page = pages[0];
+                const page = pages[0];
         
                 let url = url_list[i];
         
