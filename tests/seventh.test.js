@@ -1,7 +1,9 @@
 const puppeteer = require("puppeteer");
 const scrape = require('website-scraper');
+const fs = require('fs');
 
-input_file = 'serviceWorkersSite2.csv'
+input_file = 'Datasets/serviceWorkersSite2.csv'
+url_list = [];
 
 async function downloadSite(site){
     await scrape({

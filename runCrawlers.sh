@@ -12,5 +12,5 @@ rm -rf results/*Service*
 rm -rf Statistics/*part*
 
 for((i = 0; i < $2; i++)); do
-    screen -dmS crawler-$i bash -c "npm run crawler:$i"
+    screen -dmS crawler-$i bash -c "xvfb-run -a --server-args=\"-screen 0 1280x800x24 -ac -nolisten tcp -dpi 96 +extension RANDR\" npm run crawler:$i"
 done
