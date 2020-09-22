@@ -1,6 +1,8 @@
 const puppeteer = require("puppeteer");
 const scrape = require('website-scraper');
 
+input_file = 'serviceWorkersSite2.csv'
+
 async function downloadSite(site){
     await scrape({
         urls: [
@@ -39,21 +41,22 @@ async function downloadSite(site){
     });
 }
 
-let urlToScrape = [
-    'https://web.archive.org/web/20180815003005if_/https://www.youtube.com/',
-    'https://web.archive.org/web/20131014212210/http://stackoverflow.com/',
-    'https://web.archive.org/web/20131020224056/http://www.foodnetwork.com/',
-    'https://web.archive.org/web/20131021165347/http://www.imdb.com/',
-    'https://web.archive.org/web/20150428170340/http://ubl.com/',
-    'https://web.archive.org/web/20131001231045/http://www.bloomberg.com/',
-    'https://web.archive.org/web/20131018071258/http://www.reference.com/',
-    'https://web.archive.org/web/20131021205646/http://www.wikihow.com/Main-Page',
-    'https://web.archive.org/web/20131021172452/http://www.nbcnews.com/',
-    'https://web.archive.org/web/20131021004242/http://www.goodreads.com/'
-]
-
 describe("Just run the browser", () => {
-    for(let i = 0; i < urlToScrape.length; i++){
+
+    rawData = fs.readFileSync(input_file, {encoding: 'ascii'});
+    rawDataList = rawData.split('\n');
+
+    for(let j = 0; j < rawDataList.length; j++){
+        data = rawDataList[j].split(',')[1];
+        if(data === undefined)continue;
+        if(data.search("http") !== -1)url_list.push('https://web.archive.org/web/20180101/' + data);
+        else if(data.search("www") !== -1)url_list.push("https://web.archive.org/web/20180101/http://" + data);
+        else url_list.push("https://web.archive.org/web/20180101/http://www." + data);
+    }
+
+    if(url_list.length > 0)console.log("File " + input_file.split('/')[1] + " was successfully read.");
+
+    for(let i = 0; i < url_list.length; i++){
         it("Should scrape a site", async function(){
             //open the browser and a new page
             const browser = await puppeteer.launch({
@@ -70,7 +73,7 @@ describe("Just run the browser", () => {
             page.setDefaultNavigationTimeout(150000);
 
             //add the puppeteer code
-            await page.goto(urlToScrape[i], {waitUntil: 'load'});
+            await page.goto(url_list[i], {waitUntil: 'load'});
             console.log(await page.url());
             await downloadSite(page.url());
 
