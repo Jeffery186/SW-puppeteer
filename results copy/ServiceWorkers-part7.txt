@@ -1,9 +1,0 @@
-https://www.manoramaonline.com/akam-sw.js?othersw=https%3A%2F%2Fwww.manoramaonline.com%2Fetc%2Fdesigns%2Fwebpush%2Fsw.js
-https://www.ebay.com.au/sw.js
-https://www.lemonde.fr/sw.js?assetPath=%2Fbucket%2F2a3f12fd403ff29ba684953b7e0fd84960c2cbcd%2F
-https://www.boston.com/push-worker.js
-https://www.trendyol.com/sw.js
-https://www.wunderground.com/ngsw-worker.js
-https://www.hindustantimes.com/sw-desktop.js
-https://shopee.co.id/pc_root_sw-ID.js
-https://metro.co.uk/service-worker?path=%2Fwp-content%2Fthemes%2Fmetro-parent

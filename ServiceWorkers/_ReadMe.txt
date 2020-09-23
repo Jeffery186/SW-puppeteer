@@ -1,0 +1,1 @@
+This is were the service workers will be downloaded.

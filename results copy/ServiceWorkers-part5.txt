@@ -1,7 +1,0 @@
-https://www.hilton.com/akam-sw.js
-https://www.mirror.co.uk/service-worker.js?v=100b60c9b16539f18fafdc089f7ba9fc&cacheFirst=true&pushDisplayService=airship&vap=BI7MdL0GTRxWItGNgYH9-Ievvv89PA1fS6GnS6GMbEo7gpRLhlaxavxCsahFjMSLo-p-rpFEEXeJaicd1hYfVcs%3D&a=gN76xwKsRiOVd2MC6vAatQ&t=MTpnTjc2eHdLc1JpT1ZkMk1DNnZBYXRROmdsY1k2V0YxRFI1X1g2SW5mTVR1YlAtX2JvVXVuZDZZZ3JtX1JRMmp4T1E&i=
-https://www.rambler.ru/sw-desktop.js
-https://www.realtor.com/sw.js
-https://www.thesun.co.uk/sw.js
-https://www.epicgames.com/store/epic-service-worker.js
-https://player.simplecast.com/service-worker.js

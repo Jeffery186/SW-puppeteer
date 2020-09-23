@@ -6,7 +6,7 @@ numberToStrings = [
     'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth'
     ]
 
-testNumber = 7
+testNumber = 8
 labels = 'mocha --timeout=500000'
 
 with open('package.json', 'r') as fp:
