@@ -37,9 +37,9 @@ var uniq = serviceWorkerUrls.map((name) => {
 
 var duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1)
 
-console.log(('duplicate SW are: ' + duplicates.length).cyan.underline.bold);
+console.log(('duplicate SW: ' + duplicates.length).cyan.underline.bold);
 console.log(('Expected files: ' + (serviceWorkerUrls.length - duplicates.length)).cyan.underline.bold);
 
 serviceWorkerUrls.forEach(element => {
-    downloadSW(element.slice(0, -1).split('?')[0], destination + element.split('/')[2] + '-SW.js')
+    downloadSW(element.split('?')[0], destination + element.split('/')[2] + '-SW.js')
 });

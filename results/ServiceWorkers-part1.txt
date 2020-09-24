@@ -1,0 +1,5 @@
+https://ria.ru/firebase-messaging-sw.js
+https://www.tokopedia.com/service-worker.js
+https://www.gamespot.com/push-worker.js
+https://www.twitch.tv/service-worker.js
+https://www.jpnn.com/service-worker.js

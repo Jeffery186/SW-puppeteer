@@ -12,13 +12,13 @@ let noServiceWorkers = [];
 let rawData;
 let rawDataList;
 let data;
+let timeout = true;
 let arguments = [
     '--enable-features=NetworkService',
     '--no-sandbox',
     '--disable-setuid-sandbox',
     '--ignore-certificate-errors',
     '--disable-gpu',
-    '--allow-silent-push'
     //'--headless'
 ]
 
@@ -99,10 +99,11 @@ describe("running the crawler", () => {
                 var swTargetFound;
                 
                 page.setDefaultNavigationTimeout(90000);
-                if (permitions) await context.overridePermissions(url, ["notifications"]);
+                if (permitions) await context.overridePermissions(url, ['notifications']);
 
                 try{
                     await page.goto(url, {waitUntil: 'load'});
+                    timeout = false;
         
                     swTargetFound = await browser.waitForTarget(target => {
                         if(target.type() === 'service_worker'){
@@ -122,6 +123,11 @@ describe("running the crawler", () => {
                     }
                 }catch(err){
                     try{
+                        if(timeout){
+                            browser.close();
+                            break;
+                        }
+
                         await page.goto(url);
         
                         swTargetFound = await browser.waitForTarget(target => {
