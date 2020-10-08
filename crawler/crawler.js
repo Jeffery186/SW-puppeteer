@@ -13,6 +13,7 @@ let rawData;
 let rawDataList;
 let data;
 let timeout = true;
+let hasBrowserRun;
 let arguments = [
     '--enable-features=NetworkService',
     '--no-sandbox',
@@ -52,12 +53,14 @@ async function downloadSite(site){
             }
         ]
     }).then(function (result) {
-        // Outputs HTML 
-        // console.log(result);
         console.log(site.split('/')[2] + " content succesfully downloaded.");
     }).catch(function (err) {
         console.log("Failed to download " + site.split('/')[2] + ".");
     });
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 describe("running the crawler", () => {
@@ -81,16 +84,24 @@ describe("running the crawler", () => {
                 console.log("Loop number #" + (reloadLoop + 1));
 
                 // Step 1: launch browser and take the page.
-                var browser = await puppeteer.launch({
-                    headless: false,
-                    defaultViewport: {
-                        width: 1500,
-                        height: 1000,
-                        isMobile: false
-                    },
-                    args: arguments
-                });
-                const context = browser.defaultBrowserContext();
+                hasBrowserRun = false;
+                while(hasBrowserRun === false){
+                    try{
+                        var browser = await puppeteer.launch({
+                            headless: false,
+                            defaultViewport: {
+                                width: 1500,
+                                height: 1000,
+                                isMobile: false
+                            },
+                            args: arguments
+                        });
+                        hasBrowserRun = true;
+                    }catch(e){
+                        await sleep(10000);
+                    }
+                }
+                let context = browser.defaultBrowserContext();
                 let pages =  await browser.pages();
                 const page = pages[0];
         

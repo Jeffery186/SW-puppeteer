@@ -1,0 +1,7 @@
+abs.twimg.com-SW.js
+assets.alicdn.com-SW.js
+vk.com-SW.js
+www.aliexpress.com-SW.js
+www.pinterest.com-SW.js
+www.twitch.tv-SW.js
+www.youtube.com-SW.js

@@ -1,4 +1,0 @@
-Overall Statistics
-=============================
-
-75/1000 of sites registers a SW

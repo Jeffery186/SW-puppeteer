@@ -1,0 +1,7 @@
+https://www.youtube.com/sw.js
+https://twitter.com/sw.js
+https://www.pinterest.com/sw.js
+https://vk.com/js/cmodules/sw/sw.js
+https://www.nytimes.com/vi-assets/static-assets/service-worker-test-1602097843907.js
+https://www.twitch.tv/service-worker.js
+https://www.aliexpress.com/sw.js

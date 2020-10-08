@@ -1,0 +1,4 @@
+https://abs.twimg.com/responsive-web/client-serviceworker/serviceworker.91a36bf5.js
+https://assets.alicdn.com/g/ae-fe-user-growth/web-push-client/0.0.1/ae-sw.js
+https://s.pinimg.com/webapp/js/workbox-sw-e649c959cae8597d095a.js
+https://www.youtube.com/s/desktop/6d61b49f/jsbin/serviceworker-notifications.vflset/serviceworker-notifications.js

@@ -3,7 +3,7 @@ var fs = require('fs');
 const colors = require('colors');
 
 destination = 'ServiceWorkers/';
-sourceFile = 'results copy/ServiceWorkers-Overall';
+sourceFile = process.argv[2].substr(1,process.argv[2].length);;
 serviceWorkerUrls = [];
 
 function downloadSW(url, dest) {

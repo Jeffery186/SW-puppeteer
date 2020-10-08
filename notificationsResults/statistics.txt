@@ -1,0 +1,4 @@
+Statistics
+==================
+
+7/11 of Service workers use notifications
