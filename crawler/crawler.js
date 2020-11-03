@@ -1,14 +1,16 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const scrape = require('website-scraper');
+const randomAgent = require('random-useragent')
 
 let input_file = process.argv[4].substr(1,process.argv[4].length);
 let crawlerNumber = process.argv[5].substr(1,process.argv[5].length);
-let permitions = false;
+let permitions = true;
 
 let url_list = [];
 let ServiceWorkers = [];
 let noServiceWorkers = [];
+let ServiceworkersSites = [];
 let rawData;
 let rawDataList;
 let data;
@@ -20,7 +22,7 @@ let arguments = [
     '--disable-setuid-sandbox',
     '--ignore-certificate-errors',
     '--disable-gpu',
-    //'--headless'
+    '--headless'
 ]
 
 async function downloadSite(site){
@@ -78,6 +80,9 @@ describe("running the crawler", () => {
 
     if(url_list.length > 0)console.log("File " + input_file.split('/')[1] + " was successfully read.");
     
+    url_list = ['https://movie2k.life']
+    url_list = ['https://zip-hudhomes.com/', 'https://zip-foreclosures.com/', 'https://www.hdfc.com/']
+
     for (let i = 0; i < url_list.length; i++){
         it("("+ (i + 1) + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {
             for(let reloadLoop = 0; reloadLoop < 2; reloadLoop++){
@@ -94,6 +99,7 @@ describe("running the crawler", () => {
                                 height: 1000,
                                 isMobile: false
                             },
+                            //executablePath: "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
                             args: arguments
                         });
                         hasBrowserRun = true;
@@ -106,7 +112,7 @@ describe("running the crawler", () => {
                 const page = pages[0];
         
                 let url = url_list[i];
-        
+
                 var swTargetFound;
                 
                 page.setDefaultNavigationTimeout(90000);
@@ -115,7 +121,9 @@ describe("running the crawler", () => {
                 try{
                     await page.goto(url, {waitUntil: 'load'});
                     timeout = false;
-        
+                    
+                    //await sleep(120000);
+
                     swTargetFound = await browser.waitForTarget(target => {
                         if(target.type() === 'service_worker'){
                             console.log(target.type());
@@ -129,6 +137,7 @@ describe("running the crawler", () => {
 
                     if(swTargetFound){
                         await downloadSite(page.url());
+                        await ServiceworkersSites.push(page.url());
                         await browser.close();
                         break;
                     }
@@ -154,6 +163,7 @@ describe("running the crawler", () => {
 
                         if(swTargetFound){
                             await downloadSite(page.url());
+                            await ServiceworkersSites.push(page.url());
                             await browser.close();
                             break;
                         }
@@ -197,6 +207,19 @@ describe("running the crawler", () => {
             console.log("\n\n");
             console.log("Site Without Service Worker:\n");
             console.log(noServiceWorkers);
+        }
+
+        try{
+            var file = fs.createWriteStream('results/withServiceWorkersSites-part' + crawlerNumber + '.txt');
+            for(writeLoop = 0; writeLoop < noServiceWorkers.length; writeLoop++){
+                file.write(ServiceworkersSites[writeLoop] + "\n");
+            }
+            file.end();
+            console.log("withServiceWorkersSites.txt was successfully created!\n");
+        }catch(err){
+            console.log("\n\n");
+            console.log("Site Without Service Worker:\n");
+            console.log(ServiceworkersSites);
         }
 
         try{

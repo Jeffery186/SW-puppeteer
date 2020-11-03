@@ -1,1 +1,0 @@
-"function"===typeof importScripts&&importScripts("https://asset.kompas.com/data/2019/kgmedia/js/kgmedianotif-sw.js");

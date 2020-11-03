@@ -6,6 +6,7 @@ var path = require('path');
 
 const hostname = '127.0.0.1';
 const port = 3000;
+let permitions = false;
 let ServiceWorkers;
 var content;
 var server;
@@ -24,8 +25,13 @@ async function initialization(){
 
 async function openBrowser(){
     browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         devtools: true,
+        defaultViewport:{
+            height: 1200,
+            width: 1900,
+            isMobile: false
+        },
         //executablePath: "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
         //ignoreDefaultArgs: ["--disable-extensions"],
         args: [
@@ -38,8 +44,11 @@ async function openBrowser(){
             "--tlsv1.2"
         ]
     });
+    let context = browser.defaultBrowserContext();
     let pages =  await browser.pages();
     page = pages[0];
+
+    if(permitions)await context.overridePermissions(`http://${hostname}:${port}/`, ['notifications']);
 }
 
 async function createServer(source, filename, message){
@@ -51,7 +60,7 @@ async function createServer(source, filename, message){
         if (filePath == './'){
             response.statusCode = 200;
             response.setHeader('Content-Type', 'text/html');
-            response.end("<script>" + "navigator.serviceWorker.register('" + source + "')" + "</script><h1>" + message + "</h1>");
+            response.end("<script>" + "Notification.requestPermission().then(navigator.serviceWorker.register('" + source + "'))" + "</script><h1>" + message + "</h1>");
             return;
         }
 
@@ -112,7 +121,7 @@ async function program(){
         console.log("name: " + ServiceWorkers[i])
         await createServer('ServiceWorkers/' + ServiceWorkers[i], ServiceWorkers[i].split('-')[0], 'Checking service worker ' + (i + 1) + '/' + ServiceWorkers.length);
         await page.goto(`http://${hostname}:${port}/`);
-        await waitAndClose(10000);
+        await waitAndClose(300000);
         await browser.close();
     }
 }
