@@ -11,7 +11,13 @@ while(1):
     else:
         break
 
-resultFile = open("connection_results/_resultsWithoutFilters.txt", "w")
+resultFile = open("connection_results/_resultsWithFilters.txt", "w")
+
+with open('Lists/disconnect_list.json', 'r') as fp:
+    listOfComparingDomains = json.load(fp)
+
+with open('Lists/adserversBlacklist.txt', 'r') as fp:
+    blacklist = fp.read().splitlines()
 
 for connectionFile in connectionFiles:
     lines = []
@@ -19,7 +25,12 @@ for connectionFile in connectionFiles:
     with open('connection_results/' + connectionFile, 'r') as fp:
         lines = fp.read().splitlines()
     for line in lines:
-        resultFile.write(line + ' ')
+        if line in listOfComparingDomains['Advertising']:
+            resultFile.write(line + ' ')
+            continue
+        if line in blacklist:
+            resultFile.write(line + ' ')
+            continue
     resultFile.write('\n')
 
 

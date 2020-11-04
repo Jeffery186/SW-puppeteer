@@ -59,5 +59,5 @@ console.log(('duplicate SW: ' + duplicates.length).cyan.underline.bold);
 console.log(('Expected files: ' + (serviceWorkerUrls.length - duplicates.length)).cyan.underline.bold);
 
 serviceWorkerUrls.forEach(element => {
-    downloadSW(element.split('?')[0], destination + element.split('/')[2] + '-SW' + IDnumber + '.js')
+    downloadSW(element.split('?')[0], destination + element.split('/')[2] + '()' + element.split('/')[3].split('.')[0] + '-' + IDnumber + '.js')
 });

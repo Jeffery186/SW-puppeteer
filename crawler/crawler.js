@@ -11,6 +11,7 @@ let url_list = [];
 let ServiceWorkers = [];
 let noServiceWorkers = [];
 let ServiceworkersSites = [];
+let SitesThatRegisterServiceWorkersCount = 0;
 let rawData;
 let rawDataList;
 let data;
@@ -80,8 +81,8 @@ describe("running the crawler", () => {
 
     if(url_list.length > 0)console.log("File " + input_file.split('/')[1] + " was successfully read.");
     
-    url_list = ['https://movie2k.life']
-    url_list = ['https://zip-hudhomes.com/', 'https://zip-foreclosures.com/', 'https://www.hdfc.com/']
+    //url_list = ['https://movie2k.life']
+    //url_list = ['https://zip-hudhomes.com/', 'https://zip-foreclosures.com/', 'https://www.hdfc.com/', 'https://zestradar.com/']
 
     for (let i = 0; i < url_list.length; i++){
         it("("+ (i + 1) + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {
@@ -115,31 +116,33 @@ describe("running the crawler", () => {
 
                 var swTargetFound;
                 
+                browser.on('targetcreated', target => {
+                    if(target.type() === 'service_worker'){
+                        console.log(target.type());
+                        console.log(target.url());
+                        ServiceWorkers.push(target.url());
+                        swTargetFound = true;
+                    }
+                });
+
                 page.setDefaultNavigationTimeout(90000);
                 if (permitions) await context.overridePermissions(url, ['notifications']);
 
                 try{
+
                     await page.goto(url, {waitUntil: 'load'});
                     timeout = false;
-                    
-                    //await sleep(120000);
 
-                    swTargetFound = await browser.waitForTarget(target => {
-                        if(target.type() === 'service_worker'){
-                            console.log(target.type());
-                            console.log(target.url());
-                            ServiceWorkers.push(target.url());
-                            return true;
-                        }
-                    }, {
-                        timeout: 5000
-                    });
+                    await sleep(5000);
 
                     if(swTargetFound){
                         await downloadSite(page.url());
                         await ServiceworkersSites.push(page.url());
+                        SitesThatRegisterServiceWorkersCount++;
                         await browser.close();
                         break;
+                    }else{
+                        throw err;
                     }
                 }catch(err){
                     try{
@@ -150,28 +153,21 @@ describe("running the crawler", () => {
 
                         await page.goto(url);
         
-                        swTargetFound = await browser.waitForTarget(target => {
-                            if(target.type() === 'service_worker'){
-                                console.log(target.type());
-                                console.log(target.url());
-                                ServiceWorkers.push(target.url());
-                                return true;
-                            }
-                        }, {
-                            timeout: 15000
-                        });
+                        sleep(15000);
 
                         if(swTargetFound){
                             await downloadSite(page.url());
                             await ServiceworkersSites.push(page.url());
+                            SitesThatRegisterServiceWorkersCount++;
                             await browser.close();
                             break;
+                        }else{
+                            throw err;
                         }
                     }catch(err){
                         if(reloadLoop === 1){
                             await browser.close();
                             noServiceWorkers.push(url);
-                            //throw err;
                         }
                     }
                 }finally{
@@ -211,7 +207,7 @@ describe("running the crawler", () => {
 
         try{
             var file = fs.createWriteStream('results/withServiceWorkersSites-part' + crawlerNumber + '.txt');
-            for(writeLoop = 0; writeLoop < noServiceWorkers.length; writeLoop++){
+            for(writeLoop = 0; writeLoop < ServiceworkersSites.length; writeLoop++){
                 file.write(ServiceworkersSites[writeLoop] + "\n");
             }
             file.end();
@@ -227,7 +223,7 @@ describe("running the crawler", () => {
             file.write("Statistics\n");
             file.write("=============================\n");
             file.write("\n");
-            file.write("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
+            file.write("" + SitesThatRegisterServiceWorkersCount + "/" + url_list.length + " of sites registers a SW");
             file.end();
             console.log("Statistics were successfully registered!\n");
         }catch(err){
@@ -235,7 +231,7 @@ describe("running the crawler", () => {
             console.log("Statistics\n");
             console.log("=============================\n");
             console.log("\n");
-            console.log("" + ServiceWorkers.length + "/" + url_list.length + " of sites registers a SW");
+            console.log("" + SitesThatRegisterServiceWorkersCount + "/" + url_list.length + " of sites registers a SW");
         }
     });
 });
