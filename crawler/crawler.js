@@ -153,7 +153,7 @@ describe("running the crawler", () => {
 
                         await page.goto(url);
         
-                        sleep(25000);
+                        await sleep(25000);
 
                         if(swTargetFound){
                             await downloadSite(page.url());
