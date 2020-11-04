@@ -114,7 +114,7 @@ describe("running the crawler", () => {
         
                 let url = url_list[i];
 
-                var swTargetFound;
+                var swTargetFound = false;
                 
                 browser.on('targetcreated', target => {
                     if(target.type() === 'service_worker'){
@@ -153,7 +153,7 @@ describe("running the crawler", () => {
 
                         await page.goto(url);
         
-                        sleep(15000);
+                        sleep(25000);
 
                         if(swTargetFound){
                             await downloadSite(page.url());
