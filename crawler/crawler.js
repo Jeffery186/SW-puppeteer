@@ -83,6 +83,7 @@ describe("running the crawler", () => {
     
     //url_list = ['https://movie2k.life']
     //url_list = ['https://zip-hudhomes.com/', 'https://zip-foreclosures.com/', 'https://www.hdfc.com/', 'https://zestradar.com/']
+    url_list = ['https://mirsegondya.com/', 'https://filmix.cc/', 'https://newsrank.ru/', 'https://24molnia.com/', 'https://smo333.com/', 'https://4eva.ru/', 'https://alldz.net/', 'http://branto.ru/', 'http://sociumin.com/', 'https://www.tvshow.in.ua/', 'http://womanlifeclub.ru/', 'http://v3.kz/', 'https://spravochnik109.link/', 'http://z3.kz/', 'http://yootoo.kz/', 'http://xx3.kz/', 'http://c3.kz/', 'http://u3.kz/', 'http://s3.kz/', 'http://r3.kz/']
 
     for (let i = 0; i < url_list.length; i++){
         it("("+ (i + 1) + "/" + url_list.length + ") Checked " + url_list[i].split('/')[2], async() => {

@@ -9,5 +9,5 @@ chmod +x killCrawlers.sh
 chmod +x runParts.sh
 chmod +x Datasets/split-data.sh
 
-./Datasets/split-data.sh ./Datasets/tranco_1m_unique.csv
-mv splitedData topSitesSplited
+./Datasets/split-data.sh ./Datasets/tranco_1m_unique.csv 1000
+mv splitedData/ topSitesSplited
