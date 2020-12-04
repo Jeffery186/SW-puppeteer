@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-let maxTabs = 20;
+let maxTabs = 5;
 let browser;
 let context;
 let sites = [];
@@ -53,14 +53,15 @@ function splitSites(){
 async function TabController(number){
     let page = await browser.newPage();
 
+    await page.setDefaultNavigationTimeout(90000);
     sitesOfInterest = sitesPart[number]
 
     for(let i = 0; i < sitesOfInterest.length; i++){
         site = sitesOfInterest[i];
         await context.overridePermissions(site, ['notifications']);
-        await page.setDefaultNavigationTimeout(90000);
         await page.goto(site, {waitUntil: 'load'})
         await sleep(120000)
+        console.log("Finished TabController-" + number + " site " + i + " out of " + sitesOfInterest.length);
     }
 
     console.log("TabController-" + number + " has finnished!");
@@ -70,12 +71,13 @@ async function TabController(number){
 async function Main(){
     browser = await puppeteer.launch({
         headless: false,
+        devtools: true,
         defaultViewport:{
             height: 1200,
-            width: 1200,
+            width: 1900,
             isMobile: false
         },
-        //executablePath: "C:/Users/george/Desktop/chrome-win/chrome.exe",
+        executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
         args: [
             //"--proxy-server=http://127.0.0.1:8080",
             "--ignore-certificate-errors",
@@ -95,7 +97,7 @@ async function Main(){
     await readSites();
     await splitSites();
 
-    for(let i = 0; i < maxTabs < sitesPart.length ? maxTabs : sitesPart.length; i++){
+    for(let i = 0; i < (maxTabs < sitesPart.length ? maxTabs : sitesPart.length); i++){
         TabController(i);
     }
 }
