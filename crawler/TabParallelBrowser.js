@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const color = require('colors');
 
-let maxTabs = 5;
+let maxTabs = 7;
 let browser;
 let context;
 let sites = [];
@@ -54,17 +55,21 @@ async function TabController(number){
     let page = await browser.newPage();
 
     await page.setDefaultNavigationTimeout(90000);
-    sitesOfInterest = sitesPart[number]
+    let sitesOfInterest = sitesPart[number]
 
-    for(let i = 0; i < sitesOfInterest.length; i++){
-        site = sitesOfInterest[i];
+    for(let siteNumber = 0; siteNumber < sitesOfInterest.length; siteNumber++){
+        let site = sitesOfInterest[siteNumber];
         await context.overridePermissions(site, ['notifications']);
-        await page.goto(site, {waitUntil: 'load'})
-        await sleep(120000)
-        console.log("Finished TabController-" + number + " site " + i + " out of " + sitesOfInterest.length);
+        try{
+            await page.goto(site, {waitUntil: 'load'})
+            await sleep(120000)
+        }catch(e){
+            console.log(`Connection Timed out on site ${site}`.red)
+        }
+        console.log(`Finished TabController-${number} site ${siteNumber + 1} out of ${sitesOfInterest.length}`.yellow);
     }
 
-    console.log("TabController-" + number + " has finnished!");
+    console.log(`TabController-${number} has finnished!`.green);
     page.close();
 }
 
@@ -74,26 +79,20 @@ async function Main(){
         devtools: true,
         defaultViewport:{
             height: 1200,
-            width: 1900,
+            width: 1200,
             isMobile: false
         },
-        executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        //executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        userDataDir: "./chromeProfile",
         args: [
             //"--proxy-server=http://127.0.0.1:8080",
             "--ignore-certificate-errors",
-            "--ssl-version-min=tls1",
-            "--ssl-version-max=tls1.3",
-            "--tlsv1",
-            "--tlsv1.1",
-            "--tlsv1.2",
-            "--tlsv1.3",
-            "--user-data-dir=./chromeProfile",
             "--headless"
         ]
     });
 
     context = await browser.defaultBrowserContext();
-    
+
     await readSites();
     await splitSites();
 
