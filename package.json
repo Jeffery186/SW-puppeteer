@@ -34,7 +34,6 @@
  "license": "ISC",
  "dependencies": {
   "chai": "^4.2.0",
-  "chrome-har-capturer": "file:chrome-har-capturer",
   "colors": "^1.4.0",
   "csv-parser": "^2.3.3",
   "https": "^1.0.0",
