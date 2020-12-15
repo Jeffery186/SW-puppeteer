@@ -12,5 +12,6 @@ for((i = $1; i < $(($2 + 1)); i++)); do
     mv Statistics/Statistics-Overall.txt crawled/part-$i/
     mv results/noServiceWorkersSites-Overall.txt crawled/part-$i/
     mv results/ServiceWorkers-Overall.txt crawled/part-$i/
+    mv results/withServiceWorkersSites-Overall.txt crawled/part-$i/
     echo "part-$i successfully crawled"
 done

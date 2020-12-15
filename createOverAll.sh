@@ -12,6 +12,12 @@ for((i = 0; i < $1; i++)); do
     cat results/noServiceWorkersSites-part$i.txt >> results/noServiceWorkersSites-Overall.txt
 done
 
+touch results/withServiceWorkersSites-Overall.txt
+
+for((i = 0; i < $1; i++)); do
+    cat results/withServiceWorkersSites-part$i.txt >> results/withServiceWorkersSites-Overall.txt
+done
+
 echo "Overall Statistics" > Statistics/Statistics-Overall.txt
 echo "=============================" >> Statistics/Statistics-Overall.txt
 echo "" >> Statistics/Statistics-Overall.txt

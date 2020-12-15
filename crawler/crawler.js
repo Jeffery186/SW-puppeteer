@@ -82,7 +82,7 @@ describe("running the crawler", () => {
     if(url_list.length > 0)console.log("File " + input_file.split('/')[1] + " was successfully read.");
     
     //url_list = ['https://movie2k.life']
-    url_list = ['https://zip-hudhomes.com/', 'https://zip-foreclosures.com/', 'https://www.hdfc.com/', 'https://zestradar.com/']
+    //url_list = ['https://zip-hudhomes.com/', 'https://zip-foreclosures.com/', 'https://www.hdfc.com/', 'https://zestradar.com/']
     //url_list = ['https://mirsegondya.com/', 'https://filmix.cc/', 'https://newsrank.ru/', 'https://24molnia.com/', 'https://smo333.com/', 'https://4eva.ru/', 'https://alldz.net/', 'http://branto.ru/', 'http://sociumin.com/', 'https://www.tvshow.in.ua/', 'http://womanlifeclub.ru/', 'http://v3.kz/', 'https://spravochnik109.link/', 'http://z3.kz/', 'http://yootoo.kz/', 'http://xx3.kz/', 'http://c3.kz/', 'http://u3.kz/', 'http://s3.kz/', 'http://r3.kz/']
 
     for (let i = 0; i < url_list.length; i++){
@@ -137,7 +137,7 @@ describe("running the crawler", () => {
                     await sleep(5000);
 
                     if(swTargetFound){
-                        await downloadSite(page.url());
+                        //await downloadSite(page.url());
                         await ServiceworkersSites.push(page.url());
                         SitesThatRegisterServiceWorkersCount++;
                         await browser.close();
@@ -157,7 +157,7 @@ describe("running the crawler", () => {
                         await sleep(25000);
 
                         if(swTargetFound){
-                            await downloadSite(page.url());
+                            //await downloadSite(page.url());
                             await ServiceworkersSites.push(page.url());
                             SitesThatRegisterServiceWorkersCount++;
                             await browser.close();
@@ -215,7 +215,7 @@ describe("running the crawler", () => {
             console.log("withServiceWorkersSites.txt was successfully created!\n");
         }catch(err){
             console.log("\n\n");
-            console.log("Site Without Service Worker:\n");
+            console.log("Site With Service Worker:\n");
             console.log(ServiceworkersSites);
         }
 
