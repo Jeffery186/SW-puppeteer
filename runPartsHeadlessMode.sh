@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for((i = $1; i < $(($2 + 1)); i++)); do
-    ./runCrawlersHeadlessMode.sh top1mSplited/part-$i.csv 22
+    ./runCrawlersHeadlessMode.sh topSitesSplited/part-$i.csv 22
     echo "Running crawlers for part-$i..."
     sleep 5000
     echo "Calculating results of part-$i..."
