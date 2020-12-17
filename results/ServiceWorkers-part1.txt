@@ -1,5 +1,0 @@
-https://zip-hudhomes.com/service-worker.js
-https://zip-foreclosures.com/service-worker.js
-https://www.hdfc.com/service-worker.js
-https://zestradar.com/service-worker-pwa.js
-https://zestradar.com/firebase-messaging-sw.js?t=7

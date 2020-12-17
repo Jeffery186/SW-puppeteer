@@ -23,7 +23,21 @@
   "crawler:4": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-4.csv -4",
   "crawler:5": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-5.csv -5",
   "crawler:6": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-6.csv -6",
-  "crawler:7": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-7.csv -7"
+  "crawler:7": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-7.csv -7",
+  "crawler:8": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-8.csv -8",
+  "crawler:9": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-9.csv -9",
+  "crawler:10": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-10.csv -10",
+  "crawler:11": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-11.csv -11",
+  "crawler:12": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-12.csv -12",
+  "crawler:13": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-13.csv -13",
+  "crawler:14": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-14.csv -14",
+  "crawler:15": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-15.csv -15",
+  "crawler:16": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-16.csv -16",
+  "crawler:17": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-17.csv -17",
+  "crawler:18": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-18.csv -18",
+  "crawler:19": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-19.csv -19",
+  "crawler:20": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-20.csv -20",
+  "crawler:21": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-21.csv -21"
  },
  "keywords": [
   "puppeteer",
