@@ -8,7 +8,7 @@ import importlib
 import json
 
 LAMBDA_FUNC = "similarweb-crawler"
-fileList = "_sitesWithSWFirst100K.txt"
+fileList = "sitesWithSWFirst100K.txt"
 
 client = boto3.client('lambda')
 with open(fileList) as f:
