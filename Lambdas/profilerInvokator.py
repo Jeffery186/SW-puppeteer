@@ -12,7 +12,7 @@ fileList = "sitesWithSWFirst100K.txt"
 
 client = boto3.client('lambda')
 with open(fileList) as f:
-	data = json.load(f)
+	data = f.readlines()
 	for site in data:
 		print("----------------------------------------")
 		payld={'site': site}
