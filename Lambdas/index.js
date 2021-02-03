@@ -8,10 +8,10 @@ const handler  = async (args) => {
     //check CLI
     var site=null
     if ((args!=null) && (args["site"] != null)){
-        site = args["site"]
+        site = args["site"].replace('www.','');
     } else {
         if (process.argv.length>2){
-            site = process.argv.slice(2)[0];
+            site = process.argv.slice(2)[0].replace('www.','');
         } else {
             console.log("Error: no input domain given")
             process.exit(1)
@@ -19,7 +19,7 @@ const handler  = async (args) => {
     } try {
         console.log("Start scraping "+site)
         const SimilarWeb_prefix = "https://www.similarweb.com/website/"
-        var result = await browseSite(SimilarWeb_prefix+site.replace('www.',''), null, similarweb);
+        var result = await browseSite(SimilarWeb_prefix+site, null, similarweb);
         console.log(result)
         await uploadRawToS3(result, site+"_similarweb"+postfix);
     } catch (err) {
