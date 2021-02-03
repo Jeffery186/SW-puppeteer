@@ -31,7 +31,7 @@ module.exports = function () {
 
 	this.uploadRawToS3 = async function (res, key) {
 		const params = {
-			Bucket: 's3-dns-info-fakenews',
+			Bucket: process.env.S3_BUCKET,
 			Key: key,
 			Body: JSON.stringify(res, null, 2)
 		};

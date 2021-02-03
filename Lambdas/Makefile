@@ -33,4 +33,4 @@ build: clean install
 deploy:
 	aws s3 cp $(TMP_WORKSPACE)/$(FUNCTION_NAME).zip s3://$(S3_BUCKET)/$(FUNCTION_NAME).zip
 	# aws lambda update-function-configuration --function-name $(FUNCTION_NAME) --environment Variables={S3_BUCKET=com.brave.research.redirections.unprocessed}
-	aws --profile ${AWS_PROFILE} lambda update-function-code --function-name $(FUNCTION_NAME) --s3-bucket $(S3_BUCKET) --s3-key $(FUNCTION_NAME).zip
+	aws lambda update-function-code --function-name $(FUNCTION_NAME) --s3-bucket $(S3_BUCKET) --s3-key $(FUNCTION_NAME).zip

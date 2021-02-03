@@ -20,6 +20,7 @@ const handler  = async (args) => {
         console.log("Start scraping "+site)
         const SimilarWeb_prefix = "https://www.similarweb.com/website/"
         var result = await browseSite(SimilarWeb_prefix+site.replace('www.',''), null, similarweb);
+        console.log(result)
         await uploadRawToS3(result, site+"_similarweb"+postfix);
     } catch (err) {
         console.error(err);
