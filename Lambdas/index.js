@@ -8,10 +8,10 @@ const handler  = async (args) => {
     //check CLI
     var site=null
     if ((args!=null) && (args["site"] != null)){
-        site = args["site"].replace('www.','');
+        site = stripDomain(args["site"])
     } else {
         if (process.argv.length>2){
-            site = process.argv.slice(2)[0].replace('www.','');
+            site = stripDomain(process.argv.slice(2)[0])
         } else {
             console.log("Error: no input domain given")
             process.exit(1)

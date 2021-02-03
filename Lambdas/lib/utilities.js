@@ -14,10 +14,14 @@ module.exports = function () {
     };
 
     this.handleTable = function(str){
-        return str.replace(/ /g, "").split("\n")
-    }
+        return str.replace(/ /g, "").split("\n");
+    };
 
-    this.onlyUnique = function(value, index, self) {
+    this.stripDomain = function(str){
+        return str.replace('www.','').replace(",", "");
+    };
+
+    this.onlyUnique = function(value, index, self){
         return self.indexOf(value) === index;
-    }
+    };
 }
