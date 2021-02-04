@@ -17,14 +17,22 @@ const handler  = async (args) => {
             process.exit(1)
         }
     } try {
-        console.log("Start scraping "+site)
-        const SimilarWeb_prefix = "https://www.similarweb.com/website/"
-        var result = await browseSite(SimilarWeb_prefix+site, null, similarweb);
-        console.log(result)
-        await uploadRawToS3(result, site+"_similarweb"+postfix);
+        let outfile = site+"_similarweb"+postfix;
+        if (await siteParsed(outfile)){
+            console.log("Site: "+site+" was parsed already")
+        }else{
+            console.log("Start scraping "+site)
+            const SimilarWeb_prefix = "https://www.similarweb.com/website/"
+            var result = await browseSite(SimilarWeb_prefix+site, null, similarweb);
+            console.log(result)
+            if (Object.keys(result).length != 0){
+                await uploadRawToS3(result, outfile);
+            }
+        }
     } catch (err) {
         console.error(err);
     }
 }
 
-module.exports.handler = handler;
+handler()
+//module.exports.handler = handler;

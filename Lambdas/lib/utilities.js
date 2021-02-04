@@ -18,7 +18,7 @@ module.exports = function () {
     };
 
     this.stripDomain = function(str){
-        return str.replace('www.','').replace(",", "");
+        return stripit(str.replace('www.','').replace(",", ""));
     };
 
     this.onlyUnique = function(value, index, self){

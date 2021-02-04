@@ -11,22 +11,25 @@ module.exports = function () {
   		Bucket: process.env.S3_BUCKET
 	});
 
-	this.uploadFileToS3 = async function (filename) {
-		try{
-			var filedata = fs.readFileSync(filename);
-			const params = {
-				Bucket: process.env.S3_BUCKET,
-				Key: filename,
-				Body: filedata,
-				ACL: 'public-read'
-			};
-     		try {
-	    		const stored = await s3.upload(params).promise()
-			} catch (err) {
-			  	console.log(err)
-			}
-     	}catch(e){console.log(e)}
-     	console.log("Stored "+filename)
+	this.siteParsed = async function (key){
+		const params = {
+			Bucket: process.env.S3_BUCKET,
+			Key: key,
+		};
+		const exists = await s3.headObject(params).promise().then(
+			() => { 
+				console.log(key+" found in S3");
+				return true;
+			},
+    		err => {
+      			if (err.code === 'NotFound') {
+      				console.log(key+" Not found in S3");
+        			return false;
+      			}
+      			throw err;
+    		}
+  		);
+  		return exists
 	}
 
 	this.uploadRawToS3 = async function (res, key) {

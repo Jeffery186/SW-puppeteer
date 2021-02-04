@@ -4,7 +4,7 @@ WORKSPACE := $(PWD)
 TMP_WORKSPACE := build
 TMP_RESROUCES := $(TMP_WORKSPACE)
 
-S3_BUCKET=s3-tid-lambda-functions
+S3_BUCKET=s3-similarweb-lambda-functions
 FUNCTION_NAME=similarweb-crawler
 
 clean:
@@ -33,4 +33,4 @@ build: clean install
 deploy:
 	aws s3 cp $(TMP_WORKSPACE)/$(FUNCTION_NAME).zip s3://$(S3_BUCKET)/$(FUNCTION_NAME).zip
 	# aws lambda update-function-configuration --function-name $(FUNCTION_NAME) --environment Variables={S3_BUCKET=com.brave.research.redirections.unprocessed}
-	aws lambda update-function-code --function-name $(FUNCTION_NAME) --s3-bucket $(S3_BUCKET) --s3-key $(FUNCTION_NAME).zip
+	aws lambda update-function-code --function-name $(FUNCTION_NAME) --s3-bucket $(S3_BUCKET) --s3-key $(FUNCTION_NAME).zip --region eu-west-3

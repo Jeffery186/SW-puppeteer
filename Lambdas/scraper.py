@@ -8,8 +8,9 @@ def run(fileList):
 	with open(fileList) as f:
 		data = f.readlines()
 		for site in data:
+			print(site)
 			os.system("node index.js "+site)
-			break
+			time.sleep(10)
 			
 run(siteList)
 
