@@ -1,6 +1,7 @@
 require("./lib/browser.js");
 require("./lib/s3.js")();
 require("./lib/ops.js")();
+const fs = require("fs").promises;
 
 const postfix = ".json";
 
@@ -34,5 +35,5 @@ const handler  = async (args) => {
     }
 }
 
-handler()
-//module.exports.handler = handler;
+//handler()
+module.exports.handler = handler;

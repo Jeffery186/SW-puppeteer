@@ -5,8 +5,8 @@ module.exports = function () {
     this.similarweb = async function (page) {
         var res = {}
         try{
-        	console.log("Let's wait a bit")
-	        await page.waitForTimeout(6000)
+        	console.log("Let's wait a bit to trick antibot")
+	        await page.waitForTimeout(10000)
 	        console.log("Done")
             let similarSites = [];
             //rank
@@ -42,7 +42,7 @@ module.exports = function () {
 	        };
         	return res
         }catch(exception) {
-            console.log(`Error fetching similarSites: `+exception);
+            console.error(`Error fetching similarSites: `+exception+" on "+page.url());
             return res
         } 
     }
