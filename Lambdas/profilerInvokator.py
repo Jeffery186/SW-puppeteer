@@ -9,9 +9,10 @@ import json
 import time
 
 LAMBDA_FUNC = "similarweb-crawler"
-fileList = "sitesWithSWFirst100K.txt"
+#fileList = "sites.txt"
+fileList = "setis.txt"
 
-client = boto3.client('lambda', region_name="ap-southeast-2") 
+client = boto3.client('lambda')#, region_name="ap-southeast-2") 
 with open(fileList) as f:
 	data = f.readlines()
 	for site in data:
