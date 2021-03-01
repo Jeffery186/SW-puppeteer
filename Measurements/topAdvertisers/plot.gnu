@@ -18,7 +18,7 @@ unset key
 set style data histogram
 set style histogram cluster gap 1
 set style fill solid border -1
-set ylabel "Percentage of sites" offset .3,0
+set ylabel "Percentage of registered SWs" offset .3,0
 set xtics rotate by -35 out  offset 0,.5 font  ",25"
 set xlabel "Top 10 Ad Servers" offset 0,1.5
 set out "topAdvertisers.eps"
