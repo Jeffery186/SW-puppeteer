@@ -4,7 +4,7 @@ WORKSPACE := $(PWD)
 TMP_WORKSPACE := build
 TMP_RESROUCES := $(TMP_WORKSPACE)
 
-S3_BUCKET=s3-similarweb-lambda-functionz
+S3_BUCKET=s3-tid-lambda-functions
 FUNCTION_NAME=similarweb-crawler
 
 clean:

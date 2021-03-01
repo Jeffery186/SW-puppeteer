@@ -23,7 +23,7 @@ module.exports = function () {
 			},
     		err => {
       			if (err.code === 'NotFound') {
-      				console.log(key+" Not found in S3");
+      				console.error(key+" Not found in S3");
         			return false;
       			}
       			throw err;
