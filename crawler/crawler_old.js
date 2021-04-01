@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const scrape = require('website-scraper');
+const randomAgent = require('random-useragent')
 
 let input_file = process.argv[4].substr(1,process.argv[4].length);
 let crawlerNumber = process.argv[5].substr(1,process.argv[5].length);
@@ -10,7 +11,6 @@ let url_list = [];
 let ServiceWorkers = [];
 let noServiceWorkers = [];
 let ServiceworkersSites = [];
-let unrechableSites = [];
 let SitesThatRegisterServiceWorkersCount = 0;
 let rawData;
 let rawDataList;
@@ -60,18 +60,6 @@ async function downloadSite(site){
     }).catch(function (err) {
         console.log("Failed to download " + site.split('/')[2] + ".");
     });
-}
-
-async function givePushPermissions(page, url){
-    await page.goto(url);
-
-    await page.evaluate(() => {
-        if ("Notification" in window) {
-            if (Notification.permission !== "granted") {
-                Notification.requestPermission()
-            }
-        }
-    })
 }
 
 function sleep(ms) {
@@ -139,25 +127,10 @@ describe("running the crawler", () => {
                 });
 
                 page.setDefaultNavigationTimeout(90000);
-                try{
-                    if (permitions) {
-                        timeout = true;
-                        await givePushPermissions(page, url);
-                        timeout = false;
-                        console.log("Permitions were given...");
-                    }
-                }catch(e){
-                    if(timeout){
-                        unrechableSites.push(url);
-                        console.log("failed to give permitions");
-                        browser.close();
-                        break;
-                    }
-                }
+                if (permitions) await context.overridePermissions(url, ['notifications']);
 
                 try{
 
-                    timeout = true;
                     await page.goto(url, {waitUntil: 'load'});
                     timeout = false;
 
@@ -176,7 +149,6 @@ describe("running the crawler", () => {
                     try{
                         if(timeout){
                             browser.close();
-                            unrechableSites.site(url);
                             break;
                         }
 
@@ -245,19 +217,6 @@ describe("running the crawler", () => {
             console.log("\n\n");
             console.log("Site With Service Worker:\n");
             console.log(ServiceworkersSites);
-        }
-
-        try{
-            var file = fs.createWriteStream('results/unrechableSites-part' + crawlerNumber + '.txt');
-            for(writeLoop = 0; writeLoop < unrechableSites.length; writeLoop++){
-                file.write(unrechableSites[writeLoop] + "\n");
-            }
-            file.end();
-            console.log("unrechableSites.txt was successfully created!\n");
-        }catch(err){
-            console.log("\n\n");
-            console.log("Unrechable Sites:\n");
-            console.log(unrechableSites);
         }
 
         try{

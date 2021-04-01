@@ -6,7 +6,7 @@ numberToStrings = [
     'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth'
     ]
 
-testNumber = 8
+testNumber = 9
 labels = 'mocha --timeout=500000'
 
 with open('package.json', 'r') as fp:
@@ -30,6 +30,10 @@ for i in range(testNumber):
 
 for i in range(int(sys.argv[1])):
     package['scripts']['crawler:' + str(i)] = f'{labels} ./crawler/crawler.js -splitedData/part-{i}.csv -{i}'
+
+for i in range(int(sys.argv[1])):
+    package['scripts']['infoGatherer:' + str(i)] = f'{labels} ./crawler/statisticsGatherer.js -splitedData/part-{i}.csv -{i}'
+
 
 with open('package.json', 'w') as fp:
     json.dump(package, fp, indent = True)
