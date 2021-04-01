@@ -50,7 +50,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-describe("running the crawler", () => {
+describe("running Information Gatherer", () => {
     //reading data
     let rawData = fs.readFileSync(input_file, {encoding: 'ascii'});
     let rawDataList = rawData.split('\n');

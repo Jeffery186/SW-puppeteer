@@ -39,7 +39,9 @@
   "crawler:19": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-19.csv -19",
   "crawler:20": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-20.csv -20",
   "crawler:21": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-21.csv -21",
-  "infoGatherer:0": "mocha --timeout=5000000 ./crawler/statisticsGatherer.js -splitedData/test.csv -0"
+  "infoGatherer:0": "mocha --timeout=5000000 ./crawler/statisticsGatherer.js -splitedData/test.csv -0",
+  "ThreeHourRun:test": "mocha --timeout=5000000 ./crawler/runSiteToGatherRequestTimes.js -https://www.kreiszeitung.de/"
+
  },
  "keywords": [
   "puppeteer",
