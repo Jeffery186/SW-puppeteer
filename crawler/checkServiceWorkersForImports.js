@@ -85,6 +85,7 @@ async function program(){
     });
     let pages =  await browser.pages();
     let page = pages[0];
+    await page._client.send('Page.setDownloadBehavior', {behavior: 'allow', downloadPath: './extraServiceWorkers'});
     for(let i = 0; i < ServiceWorkers.length; i++){
         console.log('Checking service worker ' + (i + 1) + '/' + ServiceWorkers.length)
         await createServer('ServiceWorkers/' + ServiceWorkers[i], ServiceWorkers[i].split('-')[0], 'Checking service worker ' + (i + 1) + '/' + ServiceWorkers.length);

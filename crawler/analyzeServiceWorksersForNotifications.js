@@ -2,12 +2,19 @@ const fs = require('fs');
 
 async function program(){
     let notificationSW = [];
+    let notificationSites = []
     let content;
     let files = await fs.readdirSync('ServiceWorkers');
     for(let i = 0; i < files.length; i++){
         content = fs.readFileSync('ServiceWorkers/' + files[i], {encoding: 'ascii'});
+        content = content.replace(/(\/\*[^*]*\*\/)|(\/\/[^*]*)/g, '');
         if(content.indexOf('Notification(') !== -1){
-            notificationSW.push(files[i]);
+            notificationSW.push(files[i].split('()')[0]);
+        }
+    }
+    for(let i = 0; i < notificationSW.length; i++){
+        if(!(notificationSW[i] in notificationSites)){
+            notificationSites.push(notificationSW[i])
         }
     }
     try{

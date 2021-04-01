@@ -16,20 +16,26 @@ resultFile = open("connection_results/_resultsWithFilters.txt", "w")
 with open('Lists/disconnect_list.json', 'r') as fp:
     listOfComparingDomains = json.load(fp)
 
-with open('Lists/adserversBlacklist.txt', 'r') as fp:
-    blacklist = fp.read().splitlines()
+listOfInterest = list(dict.fromkeys(listOfComparingDomains['Advertising']))
 
 for connectionFile in connectionFiles:
     lines = []
-    resultFile.write(connectionFile.split('()')[0] + ' ')
+    resultFile.write(connectionFile.split('_')[0] + ' ')
     with open('connection_results/' + connectionFile, 'r') as fp:
         lines = fp.read().splitlines()
+    tmp = []
     for line in lines:
-        if line in listOfComparingDomains['Advertising']:
-            resultFile.write(line + ' ')
+        if len(line.split('.')) > 2:
+            lineFiltered = '.'.join(line.split('.')[1:])
+        if line in listOfInterest:
+            if not line in tmp:
+                resultFile.write(line + ' ')
+                tmp.append(line)
             continue
-        if line in blacklist:
-            resultFile.write(line + ' ')
+        if lineFiltered in listOfInterest:
+            if not line in tmp:
+                resultFile.write(line + ' ')
+                tmp.append(line)
             continue
     resultFile.write('\n')
 

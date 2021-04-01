@@ -16,6 +16,7 @@
   "test:sixth": "mocha --timeout=500000 ./tests/sixth.test.js",
   "test:seventh": "mocha --timeout=500000 ./tests/seventh.test.js",
   "test:eighth": "mocha --timeout=500000 ./tests/eighth.test.js",
+  "test:nine": "mocha --timeout=500000 ./tests/nine.test.js",
   "crawler:0": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-0.csv -0",
   "crawler:1": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-1.csv -1",
   "crawler:2": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-2.csv -2",
@@ -37,7 +38,8 @@
   "crawler:18": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-18.csv -18",
   "crawler:19": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-19.csv -19",
   "crawler:20": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-20.csv -20",
-  "crawler:21": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-21.csv -21"
+  "crawler:21": "mocha --timeout=500000 ./crawler/crawler.js -splitedData/part-21.csv -21",
+  "infoGatherer:0": "mocha --timeout=5000000 ./crawler/statisticsGatherer.js -splitedData/test.csv -0"
  },
  "keywords": [
   "puppeteer",
