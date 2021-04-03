@@ -23,7 +23,7 @@ let arguments = [
     '--disable-setuid-sandbox',
     '--ignore-certificate-errors',
     '--disable-gpu',
-    '--headless'
+    //'--headless'
 ]
 
 async function downloadSite(site){
@@ -113,7 +113,7 @@ describe("running the crawler", () => {
                                 height: 1000,
                                 isMobile: false
                             },
-                            //executablePath: "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+                            //executablePath: "DefaultBrowser/chrome",
                             args: arguments
                         });
                         hasBrowserRun = true;
