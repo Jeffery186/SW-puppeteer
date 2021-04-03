@@ -117,6 +117,7 @@ describe("running the crawler", () => {
                             args: arguments
                         });
                         hasBrowserRun = true;
+                        console.log("Browser have started...")
                     }catch(e){
                         await sleep(10000);
                     }
@@ -131,7 +132,7 @@ describe("running the crawler", () => {
                 
                 browser.on('targetcreated', target => {
                     if(target.type() === 'service_worker'){
-                        console.log(target.type());
+                        console.log("SW found...")
                         console.log(target.url());
                         ServiceWorkers.push(target.url());
                         swTargetFound = true;
@@ -141,26 +142,24 @@ describe("running the crawler", () => {
                 page.setDefaultNavigationTimeout(90000);
                 try{
                     if (permitions) {
-                        timeout = true;
                         await givePushPermissions(page, url);
-                        timeout = false;
                         console.log("Permitions were given...");
                     }
                 }catch(e){
-                    if(timeout){
-                        unrechableSites.push(url);
-                        console.log("failed to give permitions");
-                        browser.close();
-                        break;
-                    }
+                    unrechableSites.push(url);
+                    console.log("failed to give permitions");
+                    browser.close();
+                    break;
                 }
 
                 try{
 
                     timeout = true;
                     await page.goto(url, {waitUntil: 'load'});
+                    console.log("Site loaded...")
                     timeout = false;
 
+                    console.log("Waiting for SW...")
                     await sleep(5000);
 
                     if(swTargetFound){
@@ -175,11 +174,13 @@ describe("running the crawler", () => {
                 }catch(err){
                     try{
                         if(timeout){
+                            console.log("Site timed out...")
                             browser.close();
                             unrechableSites.site(url);
                             break;
                         }
 
+                        console.log("Waiting for SW...")
                         await page.goto(url);
         
                         await sleep(25000);
@@ -195,11 +196,11 @@ describe("running the crawler", () => {
                         }
                     }catch(err){
                         if(reloadLoop === 1){
-                            await browser.close();
                             noServiceWorkers.push(url);
                         }
                     }
                 }finally{
+                    console.log("Close browser...")
                     await browser.close();
                 }
             }
