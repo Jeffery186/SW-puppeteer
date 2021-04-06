@@ -7,7 +7,7 @@ set key inside bottom right
 set xlabel 'Total Servers Each Service Worker'
 set ylabel 'CDF of Service Workers'
 set title 'Number of 3rd Party Servers Visited by a Service Worker'
-set yrange [0.3:1.05]
+set yrange [0.1:1]
 
 totalSites = 7444
 

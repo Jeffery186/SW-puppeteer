@@ -7,7 +7,7 @@ set key inside bottom right
 set xlabel 'Total Servers Each Service Worker'
 set ylabel 'CDF of Service Workers'
 set title 'Number of Ad Servers Visited by a Service Worker'
-set yrange [0.45:1.05]
+set yrange [0.1:1]
 #plot  "data.txt" using 1:2 title 'Service Workers' with lines
 
 totalSites = 7444
