@@ -1,0 +1,11 @@
+server  number  perventage
+com 2,798 	85.07
+net 243	7.39
+io 138	4.20
+sh 57	1.73
+top 56	1.70
+fun 46	1.40
+in 30	0.91
+co 29	0.88
+xyz 27	0.82
+#me 27	0.82
