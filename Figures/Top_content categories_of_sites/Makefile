@@ -1,5 +1,5 @@
 all:
-	gnuplot plot.gnu
+	gnuplot script.p
 	epstopdf similarweb.eps
 
 clean:
