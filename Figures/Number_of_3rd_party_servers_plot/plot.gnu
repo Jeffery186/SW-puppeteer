@@ -7,8 +7,10 @@ set key inside bottom right
 set xlabel 'Total Servers Each Service Worker'
 set ylabel 'CDF of Service Workers'
 set title 'Number of 3rd Party Servers Visited by a Service Worker'
-#plot  "data.txt" using 1:2 title 'Service Workers' with lines
+set yrange [0.3:1.05]
+
+totalSites = 7444
 
 a=0
 cumulative_sum(x)=(a=a+x,a)
-plot "data.txt" using 1:(cumulative_sum($2)) with lines lw 2 lt rgb "black" notitle
+plot "data.txt" using 1:(cumulative_sum($2)/totalSites) with lines lw 2 lt rgb "black" notitle
