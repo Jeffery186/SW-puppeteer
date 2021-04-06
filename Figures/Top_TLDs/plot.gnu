@@ -1,17 +1,23 @@
-# Scale font and line width (dpi) by changing the size! It will always display stretched.
-set terminal svg size 400,300 enhanced fname 'arial'  fsize 10 butt solid
-set output 'out.svg'
+set terminal postscript enhanced eps color defaultplex \
+   leveldefault  blacktext \
+   linewidth 3.0 butt solid \
+   palfuncparam 2000,0.003 \
+   "Helvetica" 25
+
+set grid y lt 0 lw 1 lc rgb "#B8B8B8"
+
+set format y "%.0f%%"
+set ytics offset 0.5,0
+set ylabel offset 0.5,0
+set yrange [0:250]
+set xrange [0.5:10.5]
+set xlabel "TLDs"
+set log y
+set nokey
+set ylabel "Percentage of sites" offset .5,0
+set out "tlds.eps"
 
 set boxwidth 0.5
 set style fill solid
-set xtics rotate by -45
-set yrange [:50]
-set boxwidth 0.5 relative
-set ylabel "Percentage of registered SWs"
-set xlabel "System"
-set format y "%.0f%%"
-set xlabel font ",12"
-set ylabel font ",8"
-
-plot "data.txt" using 3:xtic(1) with boxes t "" lc rgb "black",\
-		"" using ($0 + 0.05):($3 + 1.1):(sprintf("%3.2f%",($3))) with labels font ",5" notitle
+plot "data.txt" using 3:xtic(1) with boxes lc black, \
+"" using ($0 + 0.05):($3*2):(sprintf("%3.2f%",($3))) with labels font ",15" notitle

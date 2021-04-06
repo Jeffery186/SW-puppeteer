@@ -1,6 +1,6 @@
 all:
 	gnuplot plot.gnu
-	epstopdf similarweb.eps
+	epstopdf tlds.eps
 
 clean:
 	rm -f *.eps *.pdf
