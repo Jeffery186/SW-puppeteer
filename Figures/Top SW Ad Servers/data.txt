@@ -1,0 +1,11 @@
+#server             perventage
+onesignal.com       37.489
+izooto.com          3.922
+subscribers.com     3.801
+najva.com           3.709
+sendpulse.com       2.949
+truepush.com        2.615
+webpushr.com        2.554
+aswpsdkus.com       2.341
+dislanelibrar.top   1.915
+p-n.io              1.885
