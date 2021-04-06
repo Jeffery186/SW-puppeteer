@@ -1,0 +1,27 @@
+News and Media,778,26.995
+Computers Electronics and Technology,410,14.226
+Arts and Entertainment,284,9.854
+Finance,174,6.037
+Adult,138,4.788
+Science and Education,118,4.094
+Lifestyle,110,3.817
+E commerce and Shopping,92,3.192
+Sports,76,2.637
+Health,75,2.602
+Food and Drink,74,2.568
+Business and Consumer Services,73,2.533
+Travel and Tourism,63,2.186
+Community and Society,58,2.012
+Games,56,1.943
+Law and Government,52,1.804
+Vehicles,51,1.770
+Home and Garden,50,1.735
+Gambling,49,1.700
+Jobs and Career,39,1.353
+Hobbies and Leisure,23,0.798
+Heavy Industry and Engineering,17,0.590
+Pets and Animals,11,0.382
+Reference Materials,8,0.278
+Spain,1,0.035
+Vietnam,1,0.035
+India,1,0.035

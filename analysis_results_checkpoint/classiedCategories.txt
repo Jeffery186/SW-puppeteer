@@ -1,0 +1,169 @@
+News and Media,1417,22.054
+Computers Electronics and Technology,403,6.272
+TV Movies and Streaming,225,3.502
+Adult,213,3.315
+Fashion and Apparel,204,3.175
+Programming and Developer Software,172,2.677
+Finance,155,2.412
+Education,147,2.288
+Video Games Consoles and Accessories,143,2.226
+Arts and Entertainment,141,2.195
+Cooking and Recipes,116,1.805
+Investing,115,1.790
+E commerce and Shopping,113,1.759
+Music,112,1.743
+Travel and Tourism,103,1.603
+Jobs and Employment,94,1.463
+Marketplace,92,1.432
+Vehicles,88,1.370
+Faith and Beliefs,86,1.339
+Health,79,1.230
+Graphics Multimedia and Web Design,76,1.183
+Government,72,1.121
+Sports,70,1.089
+Soccer,63,0.981
+Consumer Electronics,62,0.965
+Telecommunications,57,0.887
+Home and Garden,57,0.887
+Banking Credit and Lending,55,0.856
+Beauty and Cosmetics,54,0.840
+Real Estate,51,0.794
+Search Engines,49,0.763
+Science and Education,48,0.747
+File Sharing and Hosting,47,0.732
+Social Networks and Online Communities,47,0.732
+Animation and Comics,41,0.638
+Accommodation and Hotels,40,0.623
+Lottery,39,0.607
+Air Travel,38,0.591
+Classifieds,38,0.591
+Web Hosting and Domain Names,38,0.591
+Universities and Colleges,38,0.591
+Jewelry and Luxury Products,36,0.560
+Business Services,35,0.545
+Financial Planning and Management,35,0.545
+Marketing and Advertising,31,0.482
+Online Marketing,31,0.482
+Food and Drink,31,0.482
+Coupons and Rebates,27,0.420
+Photography,26,0.405
+Restaurants and Delivery,26,0.405
+Sports Betting,25,0.389
+Home Improvement and Maintenance,24,0.374
+Games,22,0.342
+Computer Hardware,21,0.327
+Romance and Relationships,21,0.327
+Nutrition Diets and Fitness,20,0.311
+Insurance,20,0.311
+Makes and Models,20,0.311
+Furniture,18,0.280
+Casinos,17,0.265
+Humor,17,0.265
+Dictionaries and Encyclopedias,16,0.249
+Law and Government,16,0.249
+Construction and Maintenance,16,0.249
+Groceries,16,0.249
+Books and Literature,15,0.233
+Gambling,15,0.233
+Computer Security,14,0.218
+Legal,14,0.218
+Automotive Industry,14,0.218
+Social Sciences,14,0.218
+Shipping and Logistics,13,0.202
+Price Comparison,13,0.202
+Pharmacy,12,0.187
+Crafts,12,0.187
+Medicine,11,0.171
+Business and Consumer Services,11,0.171
+Gifts and Flowers,11,0.171
+Energy Industry,11,0.171
+Gardening,10,0.156
+Womens Health,10,0.156
+Motorsports,10,0.156
+Motorcycles,10,0.156
+Interior Design,10,0.156
+Camping Scouting and Outdoors,9,0.140
+Beverages,9,0.140
+Mental Health,9,0.140
+Alternative and Natural Medicine,9,0.140
+Tickets,9,0.140
+Weather,9,0.140
+Public Records and Directories,8,0.125
+Accounting and Auditing,8,0.125
+Fantasy Sports,8,0.125
+Performing Arts,8,0.125
+Environmental Science,8,0.125
+Pets,7,0.109
+Weddings,7,0.109
+Email,7,0.109
+Childcare,7,0.109
+Agriculture,6,0.093
+Hunting and Shooting,6,0.093
+Pet Food and Supplies,6,0.093
+Physics,6,0.093
+Reference Materials,6,0.093
+Addictions,5,0.078
+Lifestyle,5,0.078
+Cycling and Biking,5,0.078
+Antiques and Collectibles,5,0.078
+American Football,5,0.078
+Winter Sports,5,0.078
+Immigration and Visas,5,0.078
+Poker,5,0.078
+Ground Transportation,4,0.062
+Philanthropy,4,0.062
+Advertising Networks,4,0.062
+Heavy Industry and Engineering,4,0.062
+Car Rentals,4,0.062
+Math,4,0.062
+Horses,4,0.062
+Maps,4,0.062
+Childrens Health,4,0.062
+Jobs and Career,4,0.062
+Health Conditions and Concerns,4,0.062
+Board and Card Games,4,0.062
+National Security,4,0.062
+Puzzles and Brainteasers,4,0.062
+Aerospace and Defense,3,0.047
+History,3,0.047
+Visual Arts and Design,3,0.047
+Basketball,3,0.047
+Libraries and Museums,3,0.047
+Biology,3,0.047
+Martial Arts,3,0.047
+Publishing and Printing,3,0.047
+Human Resources,3,0.047
+Tennis,3,0.047
+Architecture,3,0.047
+Tourist Attractions,3,0.047
+Auctions,2,0.031
+Birds,2,0.031
+Grants Scholarships and Financial Aid,2,0.031
+Chemical Industry,2,0.031
+Holidays and Seasonal Events,2,0.031
+Roleplaying Games,2,0.031
+Tobacco,2,0.031
+Animals,2,0.031
+Vegetarian and Vegan,2,0.031
+Fish and Aquaria,2,0.031
+LGBTQ,2,0.031
+Extreme Sports,2,0.031
+Running,2,0.031
+Boats,2,0.031
+Textiles,2,0.031
+Spain,1,0.016
+Fishing,1,0.016
+Biotechnology and Pharmaceuticals,1,0.016
+Hobbies and Leisure,1,0.016
+Dentist and Dental Services,1,0.016
+Vietnam,1,0.016
+Community and Society,1,0.016
+Bingo,1,0.016
+Law Enforcement and Protective Services,1,0.016
+Ancestry and Genealogy,1,0.016
+India,1,0.016
+Chemistry,1,0.016
+Transportation and Excursions,1,0.016
+Astronomy,1,0.016
+Water Sports,1,0.016
+Golf,1,0.016

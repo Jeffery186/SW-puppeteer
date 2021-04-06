@@ -1,0 +1,154 @@
+News and Media,778,26.995
+Computers Electronics and Technology,185,6.419
+Adult,138,4.788
+TV Movies and Streaming,126,4.372
+Finance,80,2.776
+Fashion and Apparel,67,2.325
+Programming and Developer Software,66,2.290
+Education,63,2.186
+Arts and Entertainment,58,2.012
+Music,54,1.874
+Investing,52,1.804
+Cooking and Recipes,51,1.770
+Video Games Consoles and Accessories,49,1.700
+Faith and Beliefs,41,1.423
+Travel and Tourism,38,1.319
+Jobs and Employment,36,1.249
+Health,36,1.249
+E commerce and Shopping,35,1.214
+Soccer,33,1.145
+Government,32,1.110
+File Sharing and Hosting,31,1.076
+Vehicles,30,1.041
+Sports,28,0.972
+Animation and Comics,27,0.937
+Marketplace,26,0.902
+Graphics Multimedia and Web Design,25,0.867
+Lottery,24,0.833
+Home and Garden,24,0.833
+Telecommunications,22,0.763
+Science and Education,22,0.763
+Consumer Electronics,20,0.694
+Banking Credit and Lending,19,0.659
+Business Services,18,0.625
+Search Engines,18,0.625
+Beauty and Cosmetics,18,0.625
+Real Estate,18,0.625
+Web Hosting and Domain Names,17,0.590
+Marketing and Advertising,15,0.520
+Air Travel,13,0.451
+Classifieds,13,0.451
+Universities and Colleges,13,0.451
+Coupons and Rebates,12,0.416
+Online Marketing,11,0.382
+Financial Planning and Management,11,0.382
+Humor,11,0.382
+Romance and Relationships,11,0.382
+Jewelry and Luxury Products,11,0.382
+Law and Government,10,0.347
+Photography,10,0.347
+Home Improvement and Maintenance,9,0.312
+Insurance,9,0.312
+Accommodation and Hotels,9,0.312
+Casinos,9,0.312
+Social Networks and Online Communities,9,0.312
+Nutrition Diets and Fitness,9,0.312
+Food and Drink,8,0.278
+Furniture,8,0.278
+Sports Betting,8,0.278
+Computer Hardware,7,0.243
+Motorcycles,7,0.243
+Gifts and Flowers,7,0.243
+Crafts,7,0.243
+Medicine,6,0.208
+Automotive Industry,6,0.208
+Restaurants and Delivery,6,0.208
+Games,6,0.208
+Alternative and Natural Medicine,6,0.208
+Energy Industry,6,0.208
+Motorsports,6,0.208
+Shipping and Logistics,6,0.208
+Gambling,6,0.208
+Pets,5,0.173
+Gardening,5,0.173
+Agriculture,5,0.173
+Groceries,5,0.173
+Computer Security,5,0.173
+Mental Health,5,0.173
+Legal,5,0.173
+Public Records and Directories,4,0.139
+Business and Consumer Services,4,0.139
+Pharmacy,4,0.139
+Interior Design,4,0.139
+Environmental Science,4,0.139
+Books and Literature,4,0.139
+Camping Scouting and Outdoors,4,0.139
+Physics,4,0.139
+Basketball,3,0.104
+Biology,3,0.104
+Price Comparison,3,0.104
+Weddings,3,0.104
+Construction and Maintenance,3,0.104
+Accounting and Auditing,3,0.104
+Email,3,0.104
+Social Sciences,3,0.104
+Womens Health,3,0.104
+Philanthropy,2,0.069
+Aerospace and Defense,2,0.069
+Advertising Networks,2,0.069
+Maps,2,0.069
+Visual Arts and Design,2,0.069
+Jobs and Career,2,0.069
+Martial Arts,2,0.069
+Hunting and Shooting,2,0.069
+American Football,2,0.069
+Beverages,2,0.069
+Childcare,2,0.069
+Tickets,2,0.069
+Addictions,2,0.069
+Animals,2,0.069
+Pet Food and Supplies,2,0.069
+Vegetarian and Vegan,2,0.069
+National Security,2,0.069
+Immigration and Visas,2,0.069
+Performing Arts,2,0.069
+Poker,2,0.069
+LGBTQ,2,0.069
+Childrens Health,2,0.069
+Tennis,2,0.069
+Grants Scholarships and Financial Aid,1,0.035
+Heavy Industry and Engineering,1,0.035
+Math,1,0.035
+Spain,1,0.035
+Lifestyle,1,0.035
+Holidays and Seasonal Events,1,0.035
+Antiques and Collectibles,1,0.035
+Biotechnology and Pharmaceuticals,1,0.035
+Hobbies and Leisure,1,0.035
+Fantasy Sports,1,0.035
+Cycling and Biking,1,0.035
+Dictionaries and Encyclopedias,1,0.035
+Horses,1,0.035
+Health Conditions and Concerns,1,0.035
+Libraries and Museums,1,0.035
+Human Resources,1,0.035
+Tobacco,1,0.035
+History,1,0.035
+Vietnam,1,0.035
+Reference Materials,1,0.035
+Community and Society,1,0.035
+Fish and Aquaria,1,0.035
+Weather,1,0.035
+Law Enforcement and Protective Services,1,0.035
+Makes and Models,1,0.035
+India,1,0.035
+Publishing and Printing,1,0.035
+Tourist Attractions,1,0.035
+Puzzles and Brainteasers,1,0.035
+Transportation and Excursions,1,0.035
+Running,1,0.035
+Astronomy,1,0.035
+Water Sports,1,0.035
+Auctions,1,0.035
+Boats,1,0.035
+Car Rentals,1,0.035

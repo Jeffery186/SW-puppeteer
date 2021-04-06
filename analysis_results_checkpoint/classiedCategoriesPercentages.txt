@@ -1,0 +1,161 @@
+News and Media,778,1036,75.097
+Computers Electronics and Technology,185,266,69.549
+Education,63,100,63.000
+Real Estate,18,30,60.000
+Home Improvement and Maintenance,9,15,60.000
+Medicine,6,8,75.000
+Adult,138,179,77.095
+Business Services,18,26,69.231
+File Sharing and Hosting,31,37,83.784
+Jobs and Employment,36,61,59.016
+Vehicles,30,53,56.604
+Telecommunications,22,39,56.410
+Cooking and Recipes,51,77,66.234
+Government,32,51,62.745
+TV Movies and Streaming,126,169,74.556
+Financial Planning and Management,11,21,52.381
+Arts and Entertainment,58,85,68.235
+Computer Security,5,10,50.000
+Graphics Multimedia and Web Design,25,40,62.500
+Public Records and Directories,4,6,66.667
+Faith and Beliefs,41,66,62.121
+Pets,5,5,100.000
+Online Marketing,11,16,68.750
+Programming and Developer Software,66,109,60.550
+Classifieds,13,25,52.000
+Finance,80,118,67.797
+Animation and Comics,27,32,84.375
+E commerce and Shopping,35,68,51.471
+Travel and Tourism,38,65,58.462
+Gardening,5,7,71.429
+Fashion and Apparel,67,117,57.265
+Home and Garden,24,35,68.571
+Video Games Consoles and Accessories,49,83,59.036
+Science and Education,22,31,70.968
+Insurance,9,11,81.818
+Philanthropy,2,2,100.000
+Lottery,24,28,85.714
+Computer Hardware,7,11,63.636
+Dictionaries and Encyclopedias,1,6,16.667
+Marketing and Advertising,15,21,71.429
+Consumer Electronics,20,34,58.824
+Automotive Industry,6,11,54.545
+Banking Credit and Lending,19,34,55.882
+Business and Consumer Services,4,6,66.667
+Sports,28,39,71.795
+Aerospace and Defense,2,2,100.000
+Advertising Networks,2,2,100.000
+Music,54,89,60.674
+Grants Scholarships and Financial Aid,1,1,100.000
+Law and Government,10,13,76.923
+Agriculture,5,5,100.000
+Heavy Industry and Engineering,1,1,100.000
+Air Travel,13,24,54.167
+Marketplace,26,45,57.778
+Car Rentals,1,3,33.333
+Jewelry and Luxury Products,11,16,68.750
+Web Hosting and Domain Names,17,26,65.385
+Search Engines,18,29,62.069
+Investing,52,74,70.270
+Womens Health,3,5,60.000
+Social Networks and Online Communities,9,18,50.000
+Hunting and Shooting,2,3,66.667
+Math,1,2,50.000
+Horses,1,2,50.000
+Maps,2,3,66.667
+Accommodation and Hotels,9,22,40.909
+Pharmacy,4,7,57.143
+Visual Arts and Design,2,3,66.667
+Health,36,58,62.069
+Nutrition Diets and Fitness,9,16,56.250
+Spain,1,1,100.000
+Childrens Health,2,4,50.000
+Soccer,33,39,84.615
+Basketball,3,3,100.000
+Jobs and Career,2,3,66.667
+Beauty and Cosmetics,18,34,52.941
+Lifestyle,1,3,33.333
+Groceries,5,7,71.429
+Casinos,9,10,90.000
+Cycling and Biking,1,3,33.333
+Motorcycles,7,7,100.000
+Sports Betting,8,12,66.667
+Humor,11,11,100.000
+Biology,3,3,100.000
+Universities and Colleges,13,21,61.905
+Price Comparison,3,9,33.333
+Martial Arts,2,2,100.000
+Restaurants and Delivery,6,10,60.000
+Games,6,13,46.154
+Makes and Models,1,2,50.000
+Holidays and Seasonal Events,1,1,100.000
+Social Sciences,3,7,42.857
+Antiques and Collectibles,1,3,33.333
+Weddings,3,7,42.857
+Construction and Maintenance,3,7,42.857
+Accounting and Auditing,3,6,50.000
+Interior Design,4,8,50.000
+Food and Drink,8,15,53.333
+Romance and Relationships,11,14,78.571
+Photography,10,16,62.500
+Beverages,2,6,33.333
+Coupons and Rebates,12,21,57.143
+American Football,2,3,66.667
+Mental Health,5,5,100.000
+Gifts and Flowers,7,8,87.500
+Biotechnology and Pharmaceuticals,1,1,100.000
+Alternative and Natural Medicine,6,8,75.000
+Email,3,7,42.857
+Crafts,7,9,77.778
+Hobbies and Leisure,1,1,100.000
+Dentist and Dental Services,0,1,0.000
+Fantasy Sports,1,2,50.000
+Childcare,2,4,50.000
+Health Conditions and Concerns,1,3,33.333
+Tickets,2,5,40.000
+Legal,5,6,83.333
+Addictions,2,4,50.000
+Libraries and Museums,1,1,100.000
+Environmental Science,4,4,100.000
+Publishing and Printing,1,3,33.333
+Books and Literature,4,6,66.667
+Energy Industry,6,6,100.000
+Human Resources,1,2,50.000
+Tennis,2,3,66.667
+Motorsports,6,6,100.000
+Tobacco,1,1,100.000
+Gambling,6,8,75.000
+Furniture,8,9,88.889
+Camping Scouting and Outdoors,4,4,100.000
+History,1,1,100.000
+Physics,4,4,100.000
+Animals,2,2,100.000
+Immigration and Visas,2,4,50.000
+Shipping and Logistics,6,7,85.714
+Roleplaying Games,0,1,0.000
+Pet Food and Supplies,2,2,100.000
+Vietnam,1,1,100.000
+Reference Materials,1,3,33.333
+Community and Society,1,1,100.000
+Vegetarian and Vegan,2,2,100.000
+Fish and Aquaria,1,1,100.000
+Weather,1,2,50.000
+National Security,2,2,100.000
+Tourist Attractions,1,2,50.000
+Law Enforcement and Protective Services,1,1,100.000
+Ancestry and Genealogy,0,1,0.000
+India,1,1,100.000
+Performing Arts,2,2,100.000
+Poker,2,2,100.000
+Puzzles and Brainteasers,1,2,50.000
+LGBTQ,2,2,100.000
+Transportation and Excursions,1,1,100.000
+Running,1,2,50.000
+Astronomy,1,1,100.000
+Board and Card Games,0,2,0.000
+Water Sports,1,1,100.000
+Architecture,0,1,0.000
+Auctions,1,1,100.000
+Chemical Industry,0,1,0.000
+Extreme Sports,0,1,0.000
+Boats,1,1,100.000
