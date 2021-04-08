@@ -1,7 +1,8 @@
 all:
 	gnuplot plot.gnu
-	epstopdf NumOfAdServers.eps
-	rm -rf *.eps
+	epstopdf rank_cdf.eps
+	
 
 clean:
 	rm -f *.pdf
+	rm -rf *.eps
