@@ -6,7 +6,7 @@ set terminal postscript enhanced eps color defaultplex \
 
 set grid y lt 0 lw 1 lc rgb "#B8B8B8"
 set key inside bottom right samplen 2
-set xlabel 'Tranco rank (10^{3})'
+set xlabel 'Popularity rank (10^{3})'
 set ylabel 'CDF' offset 2,0
 #plot  "data.txt" using 1:2 title 'Service Workers' with lines
 set out "rank_cdf.eps"
