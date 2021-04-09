@@ -1,4 +1,9 @@
-all:
+all:	data plots
+
+data:
+	./prepareData.sh
+
+plots:
 	gnuplot plot.gnu
 	epstopdf rank_cdf.eps
 	
