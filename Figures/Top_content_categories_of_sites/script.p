@@ -6,7 +6,7 @@ set terminal postscript enhanced eps color defaultplex \
 
 set grid y lt 0 lw 1 lc rgb "#B8B8B8"
 
-set size 1,1
+set size 1,1.1
 set format y "%.0f%%"
 set yrange [0:40]
 set xrange [-0.5:9.5]
@@ -17,8 +17,8 @@ set style data histogram
 set style histogram cluster gap 1.5
 set style fill solid border -1
 set ylabel "Percentage of sites" offset .3,0
-set xtics rotate by -35 out  offset -0.7,.5 font  ",18"
-set xlabel "Top Content Categories" offset 0,4
+set xtics right  rotate by 90 out  offset 1,-8 font  ",18"
+set xlabel "Top Content Categories" offset 0,-4
 set out "similarweb.eps"
 totalSites = 6425
 swSites = 2882
