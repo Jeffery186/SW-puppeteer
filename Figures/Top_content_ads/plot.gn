@@ -15,7 +15,7 @@ set xrange [-0.5:9.5]
 set xlabel "Top Content Categories" offset 0,6
 #set log y
 set nokey
-set xtics out rotate by -90 font  ",18" offset 0.7,0.2
+set xtics out right rotate by 90 font  ",18" offset 0,0.2
 set ylabel "Percentage of sites" offset .5,0
 set out "adcontent.eps"
 

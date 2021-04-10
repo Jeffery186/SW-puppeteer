@@ -17,13 +17,13 @@ set style data histogram
 set style histogram cluster gap 1.5
 set style fill solid border -1
 set ylabel "Percentage of sites" offset .3,0
-set xtics right  rotate by 90 out  offset 1,-8 font  ",18"
-set xlabel "Top Content Categories" offset 0,-4
+set xtics right  rotate by 90 out  offset 0,0.5 font  ",18"
+set xlabel "Top Content Categories" offset 0,6
 set out "similarweb.eps"
 totalSites = 6425
 swSites = 2882
 
 plot "data.dat" using (($2 / totalSites) * 100):xtic(1) title "sites with SW" fs solid lc rgb "blue",\
-     "" using ($0 - 0.2):((($2 / totalSites) * 100) ):(sprintf("%3.2f%",($2/totalSites)*100)) with labels font ",13" rotate by 90 offset 0,1.5 notitle,\
+     "" using ($0 - 0.2):((($2 / totalSites) * 100) ):(sprintf("%3.2f%",($2/totalSites)*100)) with labels font ",15" rotate by 90 offset 0,1.5 notitle,\
      "" using (($4 / swSites) * 100) title "sites with SW fetching ads" fs solid lc rgb "red",\
-     "" using ($0 + 0.2):((($4 / swSites) * 100)):(sprintf("%3.2f%",($4/swSites)*100)) with labels font ",13" rotate by 90 offset 0,1.5 notitle
+     "" using ($0 + 0.2):((($4 / swSites) * 100)):(sprintf("%3.2f%",($4/swSites)*100)) with labels font ",15" rotate by 90 offset 0,1.5 notitle
