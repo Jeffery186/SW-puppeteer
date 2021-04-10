@@ -19,5 +19,5 @@ set out "tlds.eps"
 
 set boxwidth 0.5
 set style fill solid
-plot "data.txt" using 3:xtic(1) with boxes lc black, \
+plot "data.txt" using 3:xtic(1) with boxes lt rgb 'red', \
 "" using ($0 + 0.05):($3*2):(sprintf("%3.2f%",($3))) with labels font ",15" notitle
