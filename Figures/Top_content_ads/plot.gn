@@ -1,0 +1,25 @@
+set terminal postscript enhanced eps color defaultplex \
+   leveldefault  blacktext \
+   linewidth 3.0 butt solid \
+   palfuncparam 2000,0.003 \
+   "Helvetica" 21
+
+set grid y lt 0 lw 1 lc rgb "#B8B8B8"
+
+set size 1,1.05
+set format y "%.0f%%"
+set ytics offset 0.5,0
+set ylabel offset 0.5,0
+set yrange [0:100] noreverse nowriteback
+set xrange [-0.5:9.5]
+set xlabel "Top Content Categories" offset 0,6
+#set log y
+set nokey
+set xtics out rotate by -90 font  ",18" offset 0.7,0.2
+set ylabel "Percentage of sites" offset .5,0
+set out "adcontent.eps"
+
+set boxwidth 0.5
+set style fill solid
+plot "data.tsv" using 3:xtic(1) with boxes lc 'red', \
+"" using ($0 + 0.05):($3+7):(sprintf("%3.2f%",($3))) with labels font ",15" notitle

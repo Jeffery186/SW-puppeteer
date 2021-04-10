@@ -1,1 +1,0 @@
-This is where the statistics of the crawling are saved.

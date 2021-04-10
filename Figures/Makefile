@@ -5,6 +5,7 @@ all:
 	make -C Number_of_Ad_servers_plot
 	make -C Number_of_3rd_party_servers_plot
 	make -C Rank
+	make -C	Top_content_ads
 
 clean:
 	make clean -C Top_content_categories_of_sites
@@ -13,3 +14,4 @@ clean:
 	make clean -C Top_SW_Ad_Servers
 	make clean -C Number_of_3rd_party_servers_plot
 	make clean -C Rank
+	make clean -C Top_content_ads
