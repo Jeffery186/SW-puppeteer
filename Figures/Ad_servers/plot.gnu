@@ -17,7 +17,7 @@ set nokey
 set ytics offset 0.5,0
 
 #plot "adThirdPartyServerDatafile.tsv" using 1:3 with lines lw 2 
-set log x 
+set log
 a=0
 cumulative_sum_a(x)=(a=a+x,a)
 plot "data.tsv" using ($1):(cumulative_sum_a($3)) with lines lw 2 lt rgb "red" title "SWs not connecting with any server"
@@ -26,4 +26,4 @@ unset yrange
 set xlabel 'Number of Push Aadvertisers'
 set ylabel "Number of sites"
 set out "advertisers.eps"
-plot "classiedAdServersByPopularity.txt" using 2 lt rgb "red" 
+plot "classiedAdServersByPopularity.txt" using 2 lt rgb "red" lw 3 pt 2
