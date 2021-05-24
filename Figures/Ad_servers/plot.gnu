@@ -22,8 +22,26 @@ a=0
 cumulative_sum_a(x)=(a=a+x,a)
 plot "data.tsv" using ($1):(cumulative_sum_a($3)) with lines lw 2 lt rgb "red" title "SWs not connecting with any server"
 
-unset yrange
-set xlabel 'Number of Push Aadvertisers'
-set ylabel "Number of sites"
+set format "10^{%L}"
+set yrange [1:1400]
+set xlabel 'Rank of Push Ad Networks'
+set ylabel "Number of Sites" offset .5,0
 set out "advertisers.eps"
-plot "classiedAdServersByPopularity.txt" using 2 lt rgb "red" lw 3 pt 2
+
+f(x) = a*(x**b)
+z(x) = c*(x**d)
+fit[4:70] f(x) 'fitData.csv' using 0:2 via a, b
+fit[71:*] z(x) 'fitData.csv' using 0:2 via c, d
+
+FIT_TITLE = sprintf("%.2f", b)
+SECOND_FIT_TITLE = sprintf("%.2f", d)
+
+# Text
+set label 1 FIT_TITLE at 25,85 rotate by -25 textcolor rgb "green70" 
+set label 2 SECOND_FIT_TITLE at 150,7 rotate by -45 textcolor rgb "purple"
+
+
+plot "classiedAdServersByPopularity.txt" using 0:2 lt rgb "red" lw 3 pt 2, \
+(x > 4 &&  x < 70 ? f(x) : 1/0 ) lt rgb "green70" lw 3, \
+(x > 70 ? z(x) : 1/0 ) lt rgb "purple" lw 3
+
